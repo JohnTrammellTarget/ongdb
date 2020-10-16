@@ -13,7 +13,7 @@
     <packaging>jar</packaging>
     <version>3.6.1-SNAPSHOT</version>
     <name>ONgDB - Cypher Acceptance</name>
-    <description>ONgDB Cypher Acceptance Specification Suite</description>
+    <description>ONgDB - Cypher Acceptance Specification Suite</description>
     <url>https://ongdb.graphfoundation.org/${project.artifactId}/${project.version}</url>
 
     <scm>
