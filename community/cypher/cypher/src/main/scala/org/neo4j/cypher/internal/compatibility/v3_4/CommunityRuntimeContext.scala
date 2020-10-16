@@ -25,12 +25,21 @@ package org.neo4j.cypher.internal.compatibility.v3_4
 import java.time.Clock
 
 import org.neo4j.cypher.internal.compiler.v3_4.phases.CompilerContext
-import org.neo4j.cypher.internal.compiler.v3_4.planner.logical.{ExpressionEvaluator, Metrics, MetricsFactory, QueryGraphSolver}
-import org.neo4j.cypher.internal.compiler.v3_4.{ContextCreator, CypherCompilerConfiguration, SyntaxExceptionCreator, UpdateStrategy}
-import org.neo4j.cypher.internal.frontend.v3_4.phases.{CompilationPhaseTracer, InternalNotificationLogger, Monitors}
+import org.neo4j.cypher.internal.compiler.v3_4.planner.logical.ExpressionEvaluator
+import org.neo4j.cypher.internal.compiler.v3_4.planner.logical.Metrics
+import org.neo4j.cypher.internal.compiler.v3_4.planner.logical.MetricsFactory
+import org.neo4j.cypher.internal.compiler.v3_4.planner.logical.QueryGraphSolver
+import org.neo4j.cypher.internal.compiler.v3_4.ContextCreator
+import org.neo4j.cypher.internal.compiler.v3_4.CypherCompilerConfiguration
+import org.neo4j.cypher.internal.compiler.v3_4.SyntaxExceptionCreator
+import org.neo4j.cypher.internal.compiler.v3_4.UpdateStrategy
+import org.neo4j.cypher.internal.frontend.v3_4.phases.CompilationPhaseTracer
+import org.neo4j.cypher.internal.frontend.v3_4.phases.InternalNotificationLogger
+import org.neo4j.cypher.internal.frontend.v3_4.phases.Monitors
 import org.neo4j.cypher.internal.planner.v3_4.spi.PlanContext
 import org.neo4j.cypher.internal.util.v3_4.attribution.IdGen
-import org.neo4j.cypher.internal.util.v3_4.{CypherException, InputPosition}
+import org.neo4j.cypher.internal.util.v3_4.CypherException
+import org.neo4j.cypher.internal.util.v3_4.InputPosition
 
 class CommunityRuntimeContext(override val exceptionCreator: (String, InputPosition) => CypherException,
                               override val tracer: CompilationPhaseTracer,

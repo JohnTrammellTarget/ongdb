@@ -23,7 +23,10 @@
 package org.neo4j.cypher.internal
 
 import org.neo4j.cypher.internal.compatibility.CypherCurrentCompiler
-import org.neo4j.cypher.{CypherPlannerOption, CypherRuntimeOption, CypherUpdateStrategy, CypherVersion}
+import org.neo4j.cypher.CypherPlannerOption
+import org.neo4j.cypher.CypherRuntimeOption
+import org.neo4j.cypher.CypherUpdateStrategy
+import org.neo4j.cypher.CypherVersion
 import org.neo4j.kernel.impl.util.CopyOnWriteHashMap
 
 import scala.collection.JavaConversions._

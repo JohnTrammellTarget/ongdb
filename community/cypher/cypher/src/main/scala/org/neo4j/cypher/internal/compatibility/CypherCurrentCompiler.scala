@@ -25,27 +25,38 @@ package org.neo4j.cypher.internal.compatibility
 import org.neo4j.cypher.exceptionHandler.runSafely
 import org.neo4j.cypher.internal._
 import org.neo4j.cypher.internal.compatibility.v3_6.ExceptionTranslatingQueryContext
-import org.neo4j.cypher.internal.compatibility.v3_6.runtime.executionplan.{StandardInternalExecutionResult, ExecutionPlan => ExecutionPlan_v3_6}
+import org.neo4j.cypher.internal.compatibility.v3_6.runtime.executionplan.StandardInternalExecutionResult
+import org.neo4j.cypher.internal.compatibility.v3_6.runtime.executionplan.{ExecutionPlan => ExecutionPlan_v3_6}
 import org.neo4j.cypher.internal.compatibility.v3_6.runtime.helpers.InternalWrapping.asKernelNotification
 import org.neo4j.cypher.internal.compatibility.v3_6.runtime.profiler.PlanDescriptionBuilder
-import org.neo4j.cypher.internal.compatibility.v3_6.runtime.{ExplainExecutionResult, RuntimeName}
+import org.neo4j.cypher.internal.compatibility.v3_6.runtime.ExplainExecutionResult
+import org.neo4j.cypher.internal.compatibility.v3_6.runtime.RuntimeName
 import org.neo4j.cypher.internal.compiler.v3_6.phases.LogicalPlanState
 import org.neo4j.cypher.internal.javacompat.ExecutionResult
-import org.neo4j.cypher.internal.planner.v3_6.spi.PlanningAttributes.{Cardinalities, ProvidedOrders}
+import org.neo4j.cypher.internal.planner.v3_6.spi.PlanningAttributes.Cardinalities
+import org.neo4j.cypher.internal.planner.v3_6.spi.PlanningAttributes.ProvidedOrders
 import org.neo4j.cypher.internal.runtime.interpreted.TransactionBoundQueryContext.IndexSearchMonitor
-import org.neo4j.cypher.internal.runtime.interpreted.{TransactionBoundQueryContext, TransactionalContextWrapper}
+import org.neo4j.cypher.internal.runtime.interpreted.TransactionBoundQueryContext
+import org.neo4j.cypher.internal.runtime.interpreted.TransactionalContextWrapper
 import org.neo4j.cypher.internal.runtime.planDescription.InternalPlanDescription
-import org.neo4j.cypher.internal.runtime.{ExecutableQuery => _, _}
+import org.neo4j.cypher.internal.runtime.{ExecutableQuery => _}
+import org.neo4j.cypher.internal.runtime._
+import org.neo4j.cypher.internal.v3_6.frontend.PlannerName
+import org.neo4j.cypher.internal.v3_6.frontend.phases.CompilationPhaseTracer
 import org.neo4j.cypher.internal.v3_6.logical.plans._
-import org.neo4j.cypher.{CypherException, CypherExecutionMode, CypherExpressionEngineOption}
-import org.neo4j.graphdb.{Notification, Result}
-import org.neo4j.kernel.api.query.{CompilerInfo, ExplicitIndexUsage, SchemaIndexUsage}
-import org.neo4j.kernel.impl.query.{QueryExecutionMonitor, TransactionalContext}
+import org.neo4j.cypher.internal.v3_6.util.InternalNotification
+import org.neo4j.cypher.internal.v3_6.util.TaskCloser
+import org.neo4j.cypher.CypherException
+import org.neo4j.cypher.CypherExecutionMode
+import org.neo4j.graphdb.Notification
+import org.neo4j.graphdb.Result
+import org.neo4j.kernel.api.query.CompilerInfo
+import org.neo4j.kernel.api.query.ExplicitIndexUsage
+import org.neo4j.kernel.api.query.SchemaIndexUsage
+import org.neo4j.kernel.impl.query.QueryExecutionMonitor
+import org.neo4j.kernel.impl.query.TransactionalContext
 import org.neo4j.kernel.monitoring.{Monitors => KernelMonitors}
 import org.neo4j.values.virtual.MapValue
-import org.neo4j.cypher.internal.v3_6.frontend.PlannerName
-import org.neo4j.cypher.internal.v3_6.frontend.phases.{CompilationPhaseTracer, RecordingNotificationLogger}
-import org.neo4j.cypher.internal.v3_6.util.{InternalNotification, TaskCloser}
 
 import scala.collection.JavaConverters._
 

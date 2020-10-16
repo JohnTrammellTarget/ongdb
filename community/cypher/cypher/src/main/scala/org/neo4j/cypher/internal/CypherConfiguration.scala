@@ -25,8 +25,12 @@ package org.neo4j.cypher.internal
 import java.util.concurrent.TimeUnit
 
 import org.neo4j.cypher.internal.compatibility.CypherRuntimeConfiguration
-import org.neo4j.cypher.internal.compiler.v3_6.{CypherPlannerConfiguration, StatsDivergenceCalculator}
-import org.neo4j.cypher.{CypherExpressionEngineOption, CypherPlannerOption, CypherRuntimeOption, CypherVersion}
+import org.neo4j.cypher.internal.compiler.v3_6.CypherPlannerConfiguration
+import org.neo4j.cypher.internal.compiler.v3_6.StatsDivergenceCalculator
+import org.neo4j.cypher.CypherExpressionEngineOption
+import org.neo4j.cypher.CypherPlannerOption
+import org.neo4j.cypher.CypherRuntimeOption
+import org.neo4j.cypher.CypherVersion
 import org.neo4j.graphdb.factory.GraphDatabaseSettings
 import org.neo4j.kernel.configuration.Config
 

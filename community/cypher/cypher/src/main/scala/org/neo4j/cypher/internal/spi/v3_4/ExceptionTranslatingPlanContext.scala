@@ -23,8 +23,12 @@
 package org.neo4j.cypher.internal.spi.v3_4
 
 import org.neo4j.cypher.internal.frontend.v3_4.phases.InternalNotificationLogger
-import org.neo4j.cypher.internal.planner.v3_4.spi.{GraphStatistics, IndexDescriptor, PlanContext}
-import org.neo4j.cypher.internal.v3_4.logical.plans.{ProcedureSignature, QualifiedName, UserFunctionSignature}
+import org.neo4j.cypher.internal.planner.v3_4.spi.GraphStatistics
+import org.neo4j.cypher.internal.planner.v3_4.spi.IndexDescriptor
+import org.neo4j.cypher.internal.planner.v3_4.spi.PlanContext
+import org.neo4j.cypher.internal.v3_4.logical.plans.ProcedureSignature
+import org.neo4j.cypher.internal.v3_4.logical.plans.QualifiedName
+import org.neo4j.cypher.internal.v3_4.logical.plans.UserFunctionSignature
 
 class ExceptionTranslatingPlanContext(inner: PlanContext) extends PlanContext with ExceptionTranslationSupport {
 

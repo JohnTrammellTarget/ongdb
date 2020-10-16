@@ -22,10 +22,19 @@
  */
 package org.neo4j.cypher.internal.compatibility.v3_4
 
-import org.neo4j.cypher.internal.planner.v3_4.spi.{GraphStatistics => GraphStatisticsV3_4, IndexDescriptor => IndexDescriptorV3_4, InstrumentedGraphStatistics => InstrumentedGraphStatisticsV3_4, MutableGraphStatisticsSnapshot => MutableGraphStatisticsSnapshotV3_4}
+import org.neo4j.cypher.internal.planner.v3_4.spi.{GraphStatistics => GraphStatisticsV3_4}
+import org.neo4j.cypher.internal.planner.v3_4.spi.{InstrumentedGraphStatistics => InstrumentedGraphStatisticsV3_4}
+import org.neo4j.cypher.internal.planner.v3_4.spi.{MutableGraphStatisticsSnapshot => MutableGraphStatisticsSnapshotV3_4}
+import org.neo4j.cypher.internal.planner.v3_4.spi.{IndexDescriptor => IndexDescriptorV3_4}
 import org.neo4j.cypher.internal.planner.v3_6.spi._
-import org.neo4j.cypher.internal.util.v3_4.{Cardinality => CardinalityV3_4, LabelId => LabelIdV3_4, PropertyKeyId => PropertyKeyIdV3_4, RelTypeId => RelTypeIdV3_4, Selectivity => SelectivityV3_4}
-import org.neo4j.cypher.internal.v3_6.util.{LabelId, PropertyKeyId, RelTypeId}
+import org.neo4j.cypher.internal.util.v3_4.{LabelId => LabelIdV3_4}
+import org.neo4j.cypher.internal.util.v3_4.{RelTypeId => RelTypeIdV3_4}
+import org.neo4j.cypher.internal.util.v3_4.{PropertyKeyId => PropertyKeyIdV3_4}
+import org.neo4j.cypher.internal.util.v3_4.{Selectivity => SelectivityV3_4}
+import org.neo4j.cypher.internal.util.v3_4.{Cardinality => CardinalityV3_4}
+import org.neo4j.cypher.internal.v3_6.util.LabelId
+import org.neo4j.cypher.internal.v3_6.util.PropertyKeyId
+import org.neo4j.cypher.internal.v3_6.util.RelTypeId
 
 /**
   * This class will act as a v3.4 InstrumentedGraphStatistics, but will update instead a map of values

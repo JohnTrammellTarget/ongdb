@@ -23,7 +23,8 @@
 package org.neo4j.cypher.internal.spi.v3_1
 
 import org.neo4j.cypher.internal.compiler.v3_1.spi.TokenContext
-import org.neo4j.cypher.{ConstraintValidationException, CypherExecutionException}
+import org.neo4j.cypher.ConstraintValidationException
+import org.neo4j.cypher.CypherExecutionException
 import org.neo4j.graphdb.{ConstraintViolationException => KernelConstraintViolationException}
 import org.neo4j.internal.kernel.api.TokenNameLookup
 import org.neo4j.internal.kernel.api.exceptions.KernelException

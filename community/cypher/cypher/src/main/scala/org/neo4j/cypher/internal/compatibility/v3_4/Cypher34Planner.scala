@@ -26,7 +26,8 @@ import java.time.Clock
 
 import org.neo4j.cypher.internal._
 import org.neo4j.cypher.internal.compatibility._
-import org.neo4j.cypher.internal.compatibility.v3_4.helpers.{as3_4, as3_5}
+import org.neo4j.cypher.internal.compatibility.v3_4.helpers.as3_4
+import org.neo4j.cypher.internal.compatibility.v3_4.helpers.as3_5
 import org.neo4j.cypher.internal.compatibility.v3_6.notification.LogicalPlanNotifications
 import org.neo4j.cypher.internal.compatibility.v3_6.runtime.helpers.simpleExpressionEvaluator
 import org.neo4j.cypher.internal.compatibility.v3_6.{ExceptionTranslatingPlanContext => ExceptionTranslatingPlanContextv3_6}
@@ -34,30 +35,44 @@ import org.neo4j.cypher.internal.compiler.v3_4
 import org.neo4j.cypher.internal.compiler.v3_4.CypherCompilerFactory
 import org.neo4j.cypher.internal.compiler.v3_4.planner.logical.{idp => idpV3_4}
 import org.neo4j.cypher.internal.compiler.v3_4.planner.{logical => logicalV3_4}
-import org.neo4j.cypher.internal.compiler.v3_6.phases.{PlannerContext, PlannerContextCreator}
-import org.neo4j.cypher.internal.compiler.v3_6.planner.logical.{CachedMetricsFactory, SimpleMetricsFactory}
-import org.neo4j.cypher.internal.compiler.v3_6.{CypherPlannerConfiguration, defaultUpdateStrategy}
+import org.neo4j.cypher.internal.compiler.v3_6.phases.PlannerContext
+import org.neo4j.cypher.internal.compiler.v3_6.phases.PlannerContextCreator
+import org.neo4j.cypher.internal.compiler.v3_6.planner.logical.CachedMetricsFactory
+import org.neo4j.cypher.internal.compiler.v3_6.planner.logical.SimpleMetricsFactory
+import org.neo4j.cypher.internal.compiler.v3_6.CypherPlannerConfiguration
+import org.neo4j.cypher.internal.compiler.v3_6.defaultUpdateStrategy
 import org.neo4j.cypher.internal.frontend.v3_4.ast.{Statement => StatementV3_4}
 import org.neo4j.cypher.internal.frontend.v3_4.helpers.rewriting.RewriterStepSequencer
 import org.neo4j.cypher.internal.frontend.v3_4.phases
-import org.neo4j.cypher.internal.frontend.v3_4.phases.{BaseState, Monitors => MonitorsV3_4, RecordingNotificationLogger => RecordingNotificationLoggerV3_4}
-import org.neo4j.cypher.internal.planner.v3_4.spi.{DPPlannerName => DPPlannerNameV3_4, IDPPlannerName => IDPPlannerNameV3_4}
+import org.neo4j.cypher.internal.frontend.v3_4.phases.BaseState
+import org.neo4j.cypher.internal.frontend.v3_4.phases.{RecordingNotificationLogger => RecordingNotificationLoggerV3_4}
+import org.neo4j.cypher.internal.frontend.v3_4.phases.{Monitors => MonitorsV3_4}
+import org.neo4j.cypher.internal.planner.v3_4.spi.{DPPlannerName => DPPlannerNameV3_4}
+import org.neo4j.cypher.internal.planner.v3_4.spi.{IDPPlannerName => IDPPlannerNameV3_4}
 import org.neo4j.cypher.internal.planner.v3_4.{spi => spiV3_4}
-import org.neo4j.cypher.internal.planner.v3_6.spi.{PlanContext, PlannerNameWithVersion, InstrumentedGraphStatistics => InstrumentedGraphStatisticsv3_6, MutableGraphStatisticsSnapshot => MutableGraphStatisticsSnapshotv3_6}
+import org.neo4j.cypher.internal.planner.v3_6.spi.PlannerNameWithVersion
+import org.neo4j.cypher.internal.planner.v3_6.spi.{InstrumentedGraphStatistics => InstrumentedGraphStatisticsv3_6}
+import org.neo4j.cypher.internal.planner.v3_6.spi.{MutableGraphStatisticsSnapshot => MutableGraphStatisticsSnapshotv3_6}
 import org.neo4j.cypher.internal.runtime.interpreted._
-import org.neo4j.cypher.internal.spi.v3_4.{ExceptionTranslatingPlanContext => ExceptionTranslatingPlanContextV3_4, TransactionBoundGraphStatistics => TransactionBoundGraphStatisticsV3_4, TransactionBoundPlanContext => TransactionBoundPlanContextV3_4}
+import org.neo4j.cypher.internal.spi.v3_4.{TransactionBoundGraphStatistics => TransactionBoundGraphStatisticsV3_4}
+import org.neo4j.cypher.internal.spi.v3_4.{ExceptionTranslatingPlanContext => ExceptionTranslatingPlanContextV3_4}
+import org.neo4j.cypher.internal.spi.v3_4.{TransactionBoundPlanContext => TransactionBoundPlanContextV3_4}
 import org.neo4j.cypher.internal.util.{v3_4 => utilV3_4}
-import org.neo4j.cypher.internal.v3_4.expressions.{Expression, Parameter}
-import org.neo4j.cypher.{CypherPlannerOption, CypherUpdateStrategy, CypherVersion}
+import org.neo4j.cypher.internal.v3_4.expressions.Expression
+import org.neo4j.cypher.internal.v3_4.expressions.Parameter
+import org.neo4j.cypher.internal.v3_6.frontend.PlannerName
+import org.neo4j.cypher.internal.v3_6.frontend.phases.CompilationPhaseTracer
+import org.neo4j.cypher.internal.v3_6.frontend.phases.RecordingNotificationLogger
+import org.neo4j.cypher.internal.v3_6.util.attribution.SequentialIdGen
+import org.neo4j.cypher.CypherPlannerOption
+import org.neo4j.cypher.CypherUpdateStrategy
+import org.neo4j.cypher.CypherVersion
 import org.neo4j.helpers.collection.Pair
 import org.neo4j.kernel.impl.api.SchemaStateKey
 import org.neo4j.kernel.impl.query.TransactionalContext
 import org.neo4j.kernel.monitoring.{Monitors => KernelMonitors}
 import org.neo4j.logging.Log
 import org.neo4j.values.virtual.MapValue
-import org.neo4j.cypher.internal.v3_6.frontend.PlannerName
-import org.neo4j.cypher.internal.v3_6.frontend.phases.{CompilationPhaseTracer, RecordingNotificationLogger, InternalNotificationLogger => InternalNotificationLoggerv3_6}
-import org.neo4j.cypher.internal.v3_6.util.attribution.SequentialIdGen
 
 case class Cypher34Planner(configv3_6: CypherPlannerConfiguration,
                            clock: Clock,
@@ -87,7 +102,7 @@ case class Cypher34Planner(configv3_6: CypherPlannerConfiguration,
   override def parserCacheSize: Int = configv3_6.queryCacheSize
 
   val rewriterSequencer: (String) => RewriterStepSequencer = {
-    import RewriterStepSequencer._
+    import org.neo4j.cypher.internal.frontend.v3_4.helpers.rewriting.RewriterStepSequencer._
     import org.neo4j.helpers.Assertion._
 
     if (assertionsEnabled()) newValidating else newPlain

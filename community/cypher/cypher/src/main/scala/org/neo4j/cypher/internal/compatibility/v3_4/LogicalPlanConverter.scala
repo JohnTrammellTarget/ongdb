@@ -27,28 +27,50 @@ import java.lang.reflect.Constructor
 import org.neo4j.cypher.internal.compatibility.v3_4.SemanticTableConverter.ExpressionMapping4To5
 import org.neo4j.cypher.internal.compiler.v3_6.helpers.PredicateHelper
 import org.neo4j.cypher.internal.frontend.{v3_4 => frontendV3_4}
-import org.neo4j.cypher.internal.ir.v3_6.{CreateNode, CreateRelationship}
-import org.neo4j.cypher.internal.ir.{v3_4 => irV3_4, v3_6 => irv3_6}
-import org.neo4j.cypher.internal.planner.v3_4.spi.PlanningAttributes.{Cardinalities => CardinalitiesV3_4, Solveds => SolvedsV3_4}
-import org.neo4j.cypher.internal.planner.v3_6.spi.PlanningAttributes.{Cardinalities => CardinalitiesV3_6, Solveds => SolvedsV3_6}
-import org.neo4j.cypher.internal.util.v3_4.{InputPosition => InputPositionV3_4, symbols => symbolsV3_4}
+import org.neo4j.cypher.internal.ir.v3_6.CreateNode
+import org.neo4j.cypher.internal.ir.v3_6.CreateRelationship
+import org.neo4j.cypher.internal.ir.{v3_4 => irV3_4}
+import org.neo4j.cypher.internal.ir.{v3_6 => irv3_6}
+import org.neo4j.cypher.internal.planner.v3_4.spi.PlanningAttributes.{Cardinalities => CardinalitiesV3_4}
+import org.neo4j.cypher.internal.planner.v3_4.spi.PlanningAttributes.{Solveds => SolvedsV3_4}
+import org.neo4j.cypher.internal.planner.v3_6.spi.PlanningAttributes.{Cardinalities => CardinalitiesV3_6}
+import org.neo4j.cypher.internal.planner.v3_6.spi.PlanningAttributes.{Solveds => SolvedsV3_6}
+import org.neo4j.cypher.internal.util.v3_4.{InputPosition => InputPositionV3_4}
+import org.neo4j.cypher.internal.util.v3_4.{symbols => symbolsV3_4}
 import org.neo4j.cypher.internal.util.{v3_4 => utilv3_4}
-import org.neo4j.cypher.internal.v3_4.expressions.{Expression => ExpressionV3_4, SemanticDirection => SemanticDirectionV3_4}
+import org.neo4j.cypher.internal.v3_4.expressions.{SemanticDirection => SemanticDirectionV3_4}
+import org.neo4j.cypher.internal.v3_4.expressions.{Expression => ExpressionV3_4}
 import org.neo4j.cypher.internal.v3_4.logical.plans.{LogicalPlan => LogicalPlanV3_4}
 import org.neo4j.cypher.internal.v3_4.logical.{plans => plansV3_4}
 import org.neo4j.cypher.internal.v3_4.{expressions => expressionsv3_4}
-import org.neo4j.cypher.internal.v3_6.expressions.{LogicalVariable, PropertyKeyName, Expression => Expressionv3_6, LabelName => LabelNamev3_6, RelTypeName => RelTypeNamev3_6, SemanticDirection => SemanticDirectionv3_6}
-import org.neo4j.cypher.internal.v3_6.logical.plans.{DoNotGetValue, FieldSignature, IndexOrderNone, IndexedProperty, ProcedureAccessMode, QualifiedName, UserFunctionSignature, LogicalPlan => LogicalPlanv3_6}
+import org.neo4j.cypher.internal.v3_6.expressions.LogicalVariable
+import org.neo4j.cypher.internal.v3_6.expressions.PropertyKeyName
+import org.neo4j.cypher.internal.v3_6.expressions.{RelTypeName => RelTypeNamev3_6}
+import org.neo4j.cypher.internal.v3_6.expressions.{LabelName => LabelNamev3_6}
+import org.neo4j.cypher.internal.v3_6.expressions.{SemanticDirection => SemanticDirectionv3_6}
+import org.neo4j.cypher.internal.v3_6.expressions.{Expression => Expressionv3_6}
+import org.neo4j.cypher.internal.v3_6.logical.plans.DoNotGetValue
+import org.neo4j.cypher.internal.v3_6.logical.plans.FieldSignature
+import org.neo4j.cypher.internal.v3_6.logical.plans.IndexOrderNone
+import org.neo4j.cypher.internal.v3_6.logical.plans.IndexedProperty
+import org.neo4j.cypher.internal.v3_6.logical.plans.ProcedureAccessMode
+import org.neo4j.cypher.internal.v3_6.logical.plans.QualifiedName
+import org.neo4j.cypher.internal.v3_6.logical.plans.UserFunctionSignature
+import org.neo4j.cypher.internal.v3_6.logical.plans.{LogicalPlan => LogicalPlanv3_6}
 import org.neo4j.cypher.internal.v3_6.logical.{plans => plansv3_6}
 import org.neo4j.cypher.internal.v3_6.util.Rewritable.RewritableAny
 import org.neo4j.cypher.internal.v3_6.util.attribution.IdGen
 import org.neo4j.cypher.internal.v3_6.util.symbols.CypherType
-import org.neo4j.cypher.internal.v3_6.util.{symbols => symbolsv3_6, _}
-import org.neo4j.cypher.internal.v3_6.{expressions => expressionsv3_6, util => utilv3_6}
+import org.neo4j.cypher.internal.v3_6.util.{symbols => symbolsv3_6}
+import org.neo4j.cypher.internal.v3_6.util._
+import org.neo4j.cypher.internal.v3_6.{util => utilv3_6}
+import org.neo4j.cypher.internal.v3_6.{expressions => expressionsv3_6}
 
 import scala.collection.mutable
 import scala.collection.mutable.{HashMap => MutableHashMap}
-import scala.util.{Failure, Success, Try}
+import scala.util.Failure
+import scala.util.Success
+import scala.util.Try
 
 /**
   * This is responsible for converting logical plans from the old version to the current version.

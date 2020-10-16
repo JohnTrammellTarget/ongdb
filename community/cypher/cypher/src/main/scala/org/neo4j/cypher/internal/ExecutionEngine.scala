@@ -30,12 +30,16 @@ import org.neo4j.cypher.internal.compatibility.CypherCacheMonitor
 import org.neo4j.cypher.internal.runtime.interpreted.LastCommittedTxIdProvider
 import org.neo4j.cypher.internal.tracing.CompilationTracer
 import org.neo4j.cypher.internal.tracing.CompilationTracer.QueryCompilationEvent
-import org.neo4j.cypher.{CypherExecutionMode, CypherExpressionEngineOption, ParameterNotFoundException, exceptionHandler}
+import org.neo4j.cypher.CypherExecutionMode
+import org.neo4j.cypher.CypherExpressionEngineOption
+import org.neo4j.cypher.ParameterNotFoundException
+import org.neo4j.cypher.exceptionHandler
 import org.neo4j.graphdb.Result
 import org.neo4j.helpers.collection.Pair
 import org.neo4j.internal.kernel.api.security.AccessMode
 import org.neo4j.kernel.GraphDatabaseQueryService
-import org.neo4j.kernel.impl.query.{QueryExecutionMonitor, TransactionalContext}
+import org.neo4j.kernel.impl.query.QueryExecutionMonitor
+import org.neo4j.kernel.impl.query.TransactionalContext
 import org.neo4j.kernel.monitoring.Monitors
 import org.neo4j.logging.LogProvider
 import org.neo4j.values.virtual.MapValue

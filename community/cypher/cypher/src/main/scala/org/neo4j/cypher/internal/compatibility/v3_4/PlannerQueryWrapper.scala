@@ -22,8 +22,12 @@
  */
 package org.neo4j.cypher.internal.compatibility.v3_4
 
-import org.neo4j.cypher.internal.ir.v3_6.{PlannerQuery, QueryGraph, QueryHorizon, InterestingOrder}
-import org.neo4j.cypher.internal.ir.{v3_4 => irV3_4, v3_6 => irv3_6}
+import org.neo4j.cypher.internal.ir.v3_6.InterestingOrder
+import org.neo4j.cypher.internal.ir.v3_6.PlannerQuery
+import org.neo4j.cypher.internal.ir.v3_6.QueryGraph
+import org.neo4j.cypher.internal.ir.v3_6.QueryHorizon
+import org.neo4j.cypher.internal.ir.{v3_4 => irV3_4}
+import org.neo4j.cypher.internal.ir.{v3_6 => irv3_6}
 
 class PlannerQueryWrapper(pq: irV3_4.PlannerQuery) extends irv3_6.PlannerQuery {
   override val queryGraph = null

@@ -29,7 +29,9 @@ import org.neo4j.cypher.internal.runtime._
 import org.neo4j.cypher.internal.runtime.planDescription.InternalPlanDescription
 import org.neo4j.cypher.result.QueryResult
 import org.neo4j.graphdb.Result.ResultVisitor
-import org.neo4j.graphdb.{Notification, QueryExecutionType, ResourceIterator}
+import org.neo4j.graphdb.Notification
+import org.neo4j.graphdb.QueryExecutionType
+import org.neo4j.graphdb.ResourceIterator
 
 import scala.collection.JavaConverters._
 

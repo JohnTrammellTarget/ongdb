@@ -24,7 +24,8 @@ package org.neo4j.cypher.internal
 
 import java.time.Clock
 
-import org.neo4j.cypher.internal.planner.v3_6.spi.{GraphStatistics, GraphStatisticsSnapshot, InstrumentedGraphStatistics}
+import org.neo4j.cypher.internal.planner.v3_6.spi.GraphStatisticsSnapshot
+import org.neo4j.cypher.internal.planner.v3_6.spi.InstrumentedGraphStatistics
 
 case class PlanFingerprint(creationTimeMillis: Long, lastCheckTimeMillis: Long, txId: Long, snapshot: GraphStatisticsSnapshot) {
   if (snapshot.statsValues.isEmpty) {

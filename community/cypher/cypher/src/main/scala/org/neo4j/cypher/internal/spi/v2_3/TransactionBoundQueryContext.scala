@@ -28,15 +28,24 @@ import java.util.function.Predicate
 
 import org.eclipse.collections.api.iterator.LongIterator
 import org.neo4j.cypher.InternalException
-import org.neo4j.cypher.internal.compiler.v2_3.MinMaxOrdering.{BY_NUMBER, BY_STRING, BY_VALUE}
+import org.neo4j.cypher.internal.compiler.v2_3.MinMaxOrdering.BY_NUMBER
+import org.neo4j.cypher.internal.compiler.v2_3.MinMaxOrdering.BY_STRING
+import org.neo4j.cypher.internal.compiler.v2_3.MinMaxOrdering.BY_VALUE
 import org.neo4j.cypher.internal.compiler.v2_3._
 import org.neo4j.cypher.internal.compiler.v2_3.ast.convert.commands.DirectionConverter.toGraphDb
 import org.neo4j.cypher.internal.compiler.v2_3.commands.expressions
-import org.neo4j.cypher.internal.compiler.v2_3.commands.expressions.{KernelPredicate, OnlyDirectionExpander, TypeAndDirectionExpander}
+import org.neo4j.cypher.internal.compiler.v2_3.commands.expressions.KernelPredicate
+import org.neo4j.cypher.internal.compiler.v2_3.commands.expressions.OnlyDirectionExpander
+import org.neo4j.cypher.internal.compiler.v2_3.commands.expressions.TypeAndDirectionExpander
 import org.neo4j.cypher.internal.compiler.v2_3.pipes.matching.PatternNode
 import org.neo4j.cypher.internal.compiler.v2_3.spi._
-import org.neo4j.cypher.internal.frontend.v2_3.SemanticDirection.{BOTH, INCOMING, OUTGOING}
-import org.neo4j.cypher.internal.frontend.v2_3.{Bound, EntityNotFoundException, FailedIndexException, SemanticDirection}
+import org.neo4j.cypher.internal.frontend.v2_3.SemanticDirection.BOTH
+import org.neo4j.cypher.internal.frontend.v2_3.SemanticDirection.INCOMING
+import org.neo4j.cypher.internal.frontend.v2_3.SemanticDirection.OUTGOING
+import org.neo4j.cypher.internal.frontend.v2_3.Bound
+import org.neo4j.cypher.internal.frontend.v2_3.EntityNotFoundException
+import org.neo4j.cypher.internal.frontend.v2_3.FailedIndexException
+import org.neo4j.cypher.internal.frontend.v2_3.SemanticDirection
 import org.neo4j.cypher.internal.javacompat.GraphDatabaseCypherService
 import org.neo4j.cypher.internal.runtime.ResourceManager
 import org.neo4j.cypher.internal.runtime.interpreted._
@@ -46,22 +55,29 @@ import org.neo4j.graphalgo.impl.path.ShortestPath.ShortestPathPredicate
 import org.neo4j.graphdb.RelationshipType._
 import org.neo4j.graphdb._
 import org.neo4j.graphdb.security.URLAccessValidationError
-import org.neo4j.graphdb.traversal.{Evaluators, TraversalDescription, Uniqueness}
+import org.neo4j.graphdb.traversal.Evaluators
+import org.neo4j.graphdb.traversal.TraversalDescription
+import org.neo4j.graphdb.traversal.Uniqueness
 import org.neo4j.internal.kernel.api
 import org.neo4j.internal.kernel.api._
 import org.neo4j.internal.kernel.api.helpers.Nodes
-import org.neo4j.internal.kernel.api.helpers.RelationshipSelections.{allCursor, incomingCursor, outgoingCursor}
+import org.neo4j.internal.kernel.api.helpers.RelationshipSelections.allCursor
+import org.neo4j.internal.kernel.api.helpers.RelationshipSelections.incomingCursor
+import org.neo4j.internal.kernel.api.helpers.RelationshipSelections.outgoingCursor
 import org.neo4j.kernel.GraphDatabaseQueryService
-import org.neo4j.kernel.api.exceptions.schema.{AlreadyConstrainedException, AlreadyIndexedException}
+import org.neo4j.kernel.api.exceptions.schema.AlreadyConstrainedException
+import org.neo4j.kernel.api.exceptions.schema.AlreadyIndexedException
 import org.neo4j.kernel.api.schema.SchemaDescriptorFactory
 import org.neo4j.kernel.api.schema.constraints.ConstraintDescriptorFactory
-import org.neo4j.kernel.api.{SilentTokenNameLookup, StatementConstants}
+import org.neo4j.kernel.api.SilentTokenNameLookup
+import org.neo4j.kernel.api.StatementConstants
 import org.neo4j.kernel.impl.core.EmbeddedProxySPI
 import org.neo4j.values.storable.Values
 
 import scala.collection.JavaConverters._
 import scala.collection.mutable.ArrayBuffer
-import scala.collection.{Iterator, mutable}
+import scala.collection.Iterator
+import scala.collection.mutable
 
 final class TransactionBoundQueryContext(tc: TransactionalContextWrapper, val resources: ResourceManager = new ResourceManager)
   extends TransactionBoundTokenContext(tc.kernelTransaction) with QueryContext with SchemaDescriptorTranslation {

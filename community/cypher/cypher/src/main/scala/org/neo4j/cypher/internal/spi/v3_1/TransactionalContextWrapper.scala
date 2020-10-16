@@ -28,7 +28,9 @@ import org.neo4j.kernel.GraphDatabaseQueryService
 import org.neo4j.kernel.api.KernelTransaction.Revertable
 import org.neo4j.kernel.api.dbms.DbmsOperations
 import org.neo4j.kernel.api.txstate.TxStateHolder
-import org.neo4j.kernel.api.{KernelTransaction, ResourceTracker, Statement}
+import org.neo4j.kernel.api.KernelTransaction
+import org.neo4j.kernel.api.ResourceTracker
+import org.neo4j.kernel.api.Statement
 import org.neo4j.kernel.impl.query.TransactionalContext
 
 case class TransactionalContextWrapper(tc: TransactionalContext) extends QueryTransactionalContext {

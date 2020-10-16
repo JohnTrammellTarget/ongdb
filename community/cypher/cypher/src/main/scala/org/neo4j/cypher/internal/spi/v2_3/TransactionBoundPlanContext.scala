@@ -29,7 +29,8 @@ import org.neo4j.cypher.internal.compiler.v2_3.spi._
 import org.neo4j.cypher.internal.runtime.interpreted.TransactionalContextWrapper
 import org.neo4j.graphdb.Node
 import org.neo4j.internal.kernel.api.exceptions.KernelException
-import org.neo4j.internal.kernel.api.{IndexReference, InternalIndexState}
+import org.neo4j.internal.kernel.api.IndexReference
+import org.neo4j.internal.kernel.api.InternalIndexState
 import org.neo4j.kernel.api.schema.SchemaDescriptorFactory
 import org.neo4j.kernel.api.schema.constraints.ConstraintDescriptor
 import org.neo4j.kernel.impl.transaction.log.TransactionIdStore

@@ -23,13 +23,18 @@
 package org.neo4j.cypher.internal.compatibility.v3_6.runtime.profiler
 
 import org.neo4j.cypher.internal.compatibility.v3_6.runtime.RuntimeName
-import org.neo4j.cypher.internal.planner.v3_6.spi.PlanningAttributes.{Cardinalities, ProvidedOrders}
+import org.neo4j.cypher.internal.planner.v3_6.spi.PlanningAttributes.Cardinalities
+import org.neo4j.cypher.internal.planner.v3_6.spi.PlanningAttributes.ProvidedOrders
 import org.neo4j.cypher.internal.runtime.planDescription.InternalPlanDescription.Arguments
-import org.neo4j.cypher.internal.runtime.planDescription.InternalPlanDescription.Arguments.{Runtime, RuntimeImpl}
-import org.neo4j.cypher.internal.runtime.planDescription.{Argument, InternalPlanDescription, LogicalPlan2PlanDescription}
-import org.neo4j.cypher.internal.v3_6.logical.plans.LogicalPlan
-import org.neo4j.cypher.result.{OperatorProfile, QueryProfile}
+import org.neo4j.cypher.internal.runtime.planDescription.InternalPlanDescription.Arguments.Runtime
+import org.neo4j.cypher.internal.runtime.planDescription.InternalPlanDescription.Arguments.RuntimeImpl
+import org.neo4j.cypher.internal.runtime.planDescription.Argument
+import org.neo4j.cypher.internal.runtime.planDescription.InternalPlanDescription
+import org.neo4j.cypher.internal.runtime.planDescription.LogicalPlan2PlanDescription
 import org.neo4j.cypher.internal.v3_6.frontend.PlannerName
+import org.neo4j.cypher.internal.v3_6.logical.plans.LogicalPlan
+import org.neo4j.cypher.result.OperatorProfile
+import org.neo4j.cypher.result.QueryProfile
 
 class PlanDescriptionBuilder(logicalPlan: LogicalPlan,
                              plannerName: PlannerName,

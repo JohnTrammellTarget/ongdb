@@ -31,13 +31,18 @@ import org.neo4j.cypher.internal.compatibility.v3_6.runtime.profiler.PlanDescrip
 import org.neo4j.cypher.internal.result.string.ResultStringBuilder
 import org.neo4j.cypher.internal.runtime._
 import org.neo4j.cypher.internal.runtime.planDescription.InternalPlanDescription
+import org.neo4j.cypher.internal.v3_6.util.ProfilerStatisticsNotReadyException
+import org.neo4j.cypher.internal.v3_6.util.TaskCloser
 import org.neo4j.cypher.result.QueryResult.QueryResultVisitor
 import org.neo4j.cypher.result.RuntimeResult.ConsumptionState
-import org.neo4j.cypher.result.{QueryResult, RuntimeResult}
-import org.neo4j.graphdb.Result.{ResultRow, ResultVisitor}
-import org.neo4j.graphdb.{NotFoundException, Notification, ResourceIterator}
+import org.neo4j.cypher.result.QueryResult
+import org.neo4j.cypher.result.RuntimeResult
+import org.neo4j.graphdb.Result.ResultRow
+import org.neo4j.graphdb.Result.ResultVisitor
+import org.neo4j.graphdb.NotFoundException
+import org.neo4j.graphdb.Notification
+import org.neo4j.graphdb.ResourceIterator
 import org.neo4j.values.AnyValue
-import org.neo4j.cypher.internal.v3_6.util.{ProfilerStatisticsNotReadyException, TaskCloser}
 
 import scala.collection.mutable
 

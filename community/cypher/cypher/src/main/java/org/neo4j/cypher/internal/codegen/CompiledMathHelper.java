@@ -22,13 +22,12 @@
  */
 package org.neo4j.cypher.internal.codegen;
 
-import org.neo4j.cypher.internal.v3_6.util.ArithmeticException;
-import org.neo4j.cypher.internal.v3_6.util.CypherTypeException;
-
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.neo4j.cypher.internal.v3_6.util.ArithmeticException;
+import org.neo4j.cypher.internal.v3_6.util.CypherTypeException;
 import org.neo4j.kernel.impl.util.ValueUtils;
 import org.neo4j.values.AnyValue;
 import org.neo4j.values.storable.ArrayValue;

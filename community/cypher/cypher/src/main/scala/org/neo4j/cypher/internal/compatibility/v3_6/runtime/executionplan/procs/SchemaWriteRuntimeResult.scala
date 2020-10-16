@@ -27,7 +27,8 @@ import java.util
 import org.neo4j.cypher.internal.runtime._
 import org.neo4j.cypher.result.QueryResult.QueryResultVisitor
 import org.neo4j.cypher.result.RuntimeResult.ConsumptionState
-import org.neo4j.cypher.result.{QueryProfile, RuntimeResult}
+import org.neo4j.cypher.result.QueryProfile
+import org.neo4j.cypher.result.RuntimeResult
 import org.neo4j.graphdb.ResourceIterator
 import org.neo4j.helpers.collection.Iterators
 

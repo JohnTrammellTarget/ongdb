@@ -24,17 +24,25 @@ package org.neo4j.cypher.internal.compatibility.v3_6.runtime.profiler
 
 import org.eclipse.collections.api.iterator.LongIterator
 import org.neo4j.cypher.internal.compatibility.v3_6.runtime.helpers.PrimitiveLongHelper
-import org.neo4j.cypher.internal.runtime.interpreted.pipes.{Pipe, PipeDecorator, QueryState}
-import org.neo4j.cypher.internal.runtime.interpreted.{DelegatingOperations, DelegatingQueryContext, ExecutionContext}
-import org.neo4j.cypher.internal.runtime.{Operations, QueryContext}
-import org.neo4j.internal.kernel.api.{NodeCursor, NodeValueIndexCursor}
+import org.neo4j.cypher.internal.runtime.interpreted.pipes.Pipe
+import org.neo4j.cypher.internal.runtime.interpreted.pipes.PipeDecorator
+import org.neo4j.cypher.internal.runtime.interpreted.pipes.QueryState
+import org.neo4j.cypher.internal.runtime.interpreted.DelegatingOperations
+import org.neo4j.cypher.internal.runtime.interpreted.DelegatingQueryContext
+import org.neo4j.cypher.internal.runtime.interpreted.ExecutionContext
+import org.neo4j.cypher.internal.runtime.Operations
+import org.neo4j.cypher.internal.runtime.QueryContext
+import org.neo4j.cypher.internal.v3_6.util.attribution.Id
 import org.neo4j.internal.kernel.api.helpers.RelationshipSelectionCursor
+import org.neo4j.internal.kernel.api.NodeCursor
+import org.neo4j.internal.kernel.api.NodeValueIndexCursor
 import org.neo4j.kernel.impl.api.store.RelationshipIterator
-import org.neo4j.kernel.impl.factory.{DatabaseInfo, Edition}
+import org.neo4j.kernel.impl.factory.DatabaseInfo
+import org.neo4j.kernel.impl.factory.Edition
 import org.neo4j.storageengine.api.RelationshipVisitor
 import org.neo4j.values.storable.Value
-import org.neo4j.values.virtual.{NodeValue, RelationshipValue}
-import org.neo4j.cypher.internal.v3_6.util.attribution.Id
+import org.neo4j.values.virtual.NodeValue
+import org.neo4j.values.virtual.RelationshipValue
 
 class Profiler(databaseInfo: DatabaseInfo,
                stats: InterpretedProfileInformation) extends PipeDecorator {

@@ -23,10 +23,13 @@
 package org.neo4j.cypher.internal.compatibility
 
 import org.neo4j.function.ThrowingBiConsumer
-import org.neo4j.kernel.impl.util.{NodeProxyWrappingNodeValue, PathWrappingPathValue, RelationshipProxyWrappingValue}
+import org.neo4j.kernel.impl.util.NodeProxyWrappingNodeValue
+import org.neo4j.kernel.impl.util.PathWrappingPathValue
+import org.neo4j.kernel.impl.util.RelationshipProxyWrappingValue
 import org.neo4j.values.AnyValue
 import org.neo4j.values.storable._
-import org.neo4j.values.virtual.{ListValue, MapValue}
+import org.neo4j.values.virtual.ListValue
+import org.neo4j.values.virtual.MapValue
 
 import scala.collection.mutable
 

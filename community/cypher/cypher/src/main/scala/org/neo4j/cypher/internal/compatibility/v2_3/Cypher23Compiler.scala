@@ -29,26 +29,40 @@ import org.neo4j.cypher.internal._
 import org.neo4j.cypher.internal.compatibility._
 import org.neo4j.cypher.internal.compatibility.v2_3.helpers.as2_3
 import org.neo4j.cypher.internal.compiler.v2_3
-import org.neo4j.cypher.internal.compiler.v2_3.executionplan.{EntityAccessor, ExecutionPlan => ExecutionPlan_v2_3}
-import org.neo4j.cypher.internal.compiler.v2_3.spi.{PlanContext, QueryContext}
+import org.neo4j.cypher.internal.compiler.v2_3.executionplan.EntityAccessor
+import org.neo4j.cypher.internal.compiler.v2_3.executionplan.{ExecutionPlan => ExecutionPlan_v2_3}
+import org.neo4j.cypher.internal.compiler.v2_3.spi.PlanContext
+import org.neo4j.cypher.internal.compiler.v2_3.spi.QueryContext
 import org.neo4j.cypher.internal.compiler.v2_3.tracing.rewriters.RewriterStepSequencer
-import org.neo4j.cypher.internal.compiler.v2_3.{InfoLogger, ExplainMode => ExplainModev2_3, NormalMode => NormalModev2_3, ProfileMode => ProfileModev2_3, _}
+import org.neo4j.cypher.internal.compiler.v2_3.InfoLogger
+import org.neo4j.cypher.internal.compiler.v2_3.{ExplainMode => ExplainModev2_3}
+import org.neo4j.cypher.internal.compiler.v2_3.{NormalMode => NormalModev2_3}
+import org.neo4j.cypher.internal.compiler.v2_3.{ProfileMode => ProfileModev2_3}
+import org.neo4j.cypher.internal.compiler.v2_3._
 import org.neo4j.cypher.internal.frontend.v2_3.InputPosition
 import org.neo4j.cypher.internal.javacompat.ExecutionResult
-import org.neo4j.cypher.internal.runtime.interpreted.{TransactionalContextWrapper, ValueConversion}
+import org.neo4j.cypher.internal.runtime.interpreted.TransactionalContextWrapper
+import org.neo4j.cypher.internal.runtime.interpreted.ValueConversion
 import org.neo4j.cypher.internal.runtime.planDescription.InternalPlanDescription
-import org.neo4j.cypher.internal.spi.v2_3.{TransactionBoundGraphStatistics, TransactionBoundPlanContext, TransactionBoundQueryContext}
+import org.neo4j.cypher.internal.spi.v2_3.TransactionBoundGraphStatistics
+import org.neo4j.cypher.internal.spi.v2_3.TransactionBoundPlanContext
+import org.neo4j.cypher.internal.spi.v2_3.TransactionBoundQueryContext
+import org.neo4j.cypher.internal.v3_6.frontend.phases.CompilationPhaseTracer
 import org.neo4j.function.ThrowingBiConsumer
-import org.neo4j.graphdb.{Node, Notification, Relationship, Result}
+import org.neo4j.graphdb.Node
+import org.neo4j.graphdb.Notification
+import org.neo4j.graphdb.Relationship
+import org.neo4j.graphdb.Result
 import org.neo4j.kernel.GraphDatabaseQueryService
-import org.neo4j.kernel.api.query.{CompilerInfo, IndexUsage}
+import org.neo4j.kernel.api.query.CompilerInfo
+import org.neo4j.kernel.api.query.IndexUsage
 import org.neo4j.kernel.impl.core.EmbeddedProxySPI
-import org.neo4j.kernel.impl.query.{QueryExecutionMonitor, TransactionalContext}
+import org.neo4j.kernel.impl.query.QueryExecutionMonitor
+import org.neo4j.kernel.impl.query.TransactionalContext
 import org.neo4j.kernel.monitoring.{Monitors => KernelMonitors}
 import org.neo4j.logging.Log
 import org.neo4j.values.AnyValue
 import org.neo4j.values.virtual.MapValue
-import org.neo4j.cypher.internal.v3_6.frontend.phases.CompilationPhaseTracer
 
 import scala.collection.mutable
 

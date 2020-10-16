@@ -24,7 +24,8 @@ package org.neo4j.cypher.internal.compatibility
 
 import java.util.function.Function
 
-import com.github.benmanes.caffeine.cache.{Cache, Caffeine}
+import com.github.benmanes.caffeine.cache.Cache
+import com.github.benmanes.caffeine.cache.Caffeine
 
 /**
   * Simple thread-safe cache with a least-frequently-used eviction policy.

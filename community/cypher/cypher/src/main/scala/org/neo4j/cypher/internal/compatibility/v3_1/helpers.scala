@@ -23,15 +23,17 @@
 package org.neo4j.cypher.internal.compatibility.v3_1
 
 import org.neo4j.cypher.InternalException
-import org.neo4j.cypher.internal.v3_6.util.InputPosition
 import org.neo4j.cypher.internal.compiler.v3_1
-import org.neo4j.cypher.internal.compiler.v3_1.CompilationPhaseTracer.{CompilationPhaseEvent, CompilationPhase => v3_1Phase}
+import org.neo4j.cypher.internal.compiler.v3_1.CompilationPhaseTracer.CompilationPhaseEvent
+import org.neo4j.cypher.internal.compiler.v3_1.CompilationPhaseTracer.{CompilationPhase => v3_1Phase}
 import org.neo4j.cypher.internal.compiler.v3_1.{CypherCompilerConfiguration => CypherCompilerConfiguration3_1}
-import org.neo4j.cypher.internal.v3_6.frontend.phases.CompilationPhaseTracer.{CompilationPhase => v3_6Phase}
 import org.neo4j.cypher.internal.compiler.v3_6.CypherPlannerConfiguration
 import org.neo4j.cypher.internal.frontend.v3_1.{InputPosition => InputPosition3_1}
 import org.neo4j.cypher.internal.v3_6.frontend.phases.CompilationPhaseTracer
-import org.neo4j.kernel.impl.query.{QueryExecutionMonitor, TransactionalContext}
+import org.neo4j.cypher.internal.v3_6.frontend.phases.CompilationPhaseTracer.{CompilationPhase => v3_6Phase}
+import org.neo4j.cypher.internal.v3_6.util.InputPosition
+import org.neo4j.kernel.impl.query.QueryExecutionMonitor
+import org.neo4j.kernel.impl.query.TransactionalContext
 
 object helpers {
   implicit def monitorFailure(t: Throwable)(implicit monitor: QueryExecutionMonitor, tc: TransactionalContext): Unit = {

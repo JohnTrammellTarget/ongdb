@@ -28,12 +28,17 @@ import java.util
 
 import org.neo4j.cypher.internal.runtime._
 import org.neo4j.cypher.internal.v3_6.logical.plans.QualifiedName
-import org.neo4j.cypher.internal.v3_6.util.symbols.{CypherType, _}
-import org.neo4j.cypher.result.QueryResult.{QueryResultVisitor, Record}
+import org.neo4j.cypher.internal.v3_6.util.symbols.CypherType
+import org.neo4j.cypher.internal.v3_6.util.symbols._
+import org.neo4j.cypher.result.QueryResult.QueryResultVisitor
+import org.neo4j.cypher.result.QueryResult.Record
 import org.neo4j.cypher.result.RuntimeResult.ConsumptionState
-import org.neo4j.cypher.result.{OperatorProfile, QueryProfile, RuntimeResult}
+import org.neo4j.cypher.result.OperatorProfile
+import org.neo4j.cypher.result.QueryProfile
+import org.neo4j.cypher.result.RuntimeResult
 import org.neo4j.graphdb.ResourceIterator
-import org.neo4j.graphdb.spatial.{Geometry, Point}
+import org.neo4j.graphdb.spatial.Geometry
+import org.neo4j.graphdb.spatial.Point
 import org.neo4j.internal.kernel.api.procs.ProcedureCallContext
 import org.neo4j.kernel.impl.util.ValueUtils
 import org.neo4j.kernel.impl.util.ValueUtils._

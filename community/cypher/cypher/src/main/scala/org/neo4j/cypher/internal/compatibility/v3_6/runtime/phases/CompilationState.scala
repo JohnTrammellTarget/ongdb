@@ -25,7 +25,8 @@ package org.neo4j.cypher.internal.compatibility.v3_6.runtime.phases
 import org.neo4j.cypher.internal.compatibility.v3_6.runtime.executionplan.{ExecutionPlan => RuntimeExecutionPlan}
 import org.neo4j.cypher.internal.compiler.v3_6.phases.LogicalPlanState
 
-import scala.util.{Failure, Try}
+import scala.util.Failure
+import scala.util.Try
 
 class CompilationState(ls: LogicalPlanState,
                            val maybeExecutionPlan: Try[RuntimeExecutionPlan] = Failure(new UnsupportedOperationException))

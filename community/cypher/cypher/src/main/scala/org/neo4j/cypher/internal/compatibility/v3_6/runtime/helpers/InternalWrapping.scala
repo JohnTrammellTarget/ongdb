@@ -23,9 +23,10 @@
 package org.neo4j.cypher.internal.compatibility.v3_6.runtime.helpers
 
 import org.neo4j.cypher.internal.compiler.v3_6._
-import org.neo4j.graphdb
-import org.neo4j.graphdb.impl.notification.{NotificationCode, NotificationDetail}
 import org.neo4j.cypher.internal.v3_6.util._
+import org.neo4j.graphdb
+import org.neo4j.graphdb.impl.notification.NotificationCode
+import org.neo4j.graphdb.impl.notification.NotificationDetail
 
 import scala.collection.JavaConverters._
 

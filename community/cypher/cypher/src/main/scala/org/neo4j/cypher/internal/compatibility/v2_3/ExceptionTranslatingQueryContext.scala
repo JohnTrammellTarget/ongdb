@@ -26,8 +26,12 @@ import java.net.URL
 
 import org.neo4j.cypher.internal.compiler.v2_3.spi._
 import org.neo4j.cypher.internal.frontend.v2_3.SemanticDirection
-import org.neo4j.cypher.{ConstraintValidationException, CypherExecutionException}
-import org.neo4j.graphdb.{Node, PropertyContainer, Relationship, ConstraintViolationException => KernelConstraintViolationException}
+import org.neo4j.cypher.ConstraintValidationException
+import org.neo4j.cypher.CypherExecutionException
+import org.neo4j.graphdb.Node
+import org.neo4j.graphdb.PropertyContainer
+import org.neo4j.graphdb.Relationship
+import org.neo4j.graphdb.{ConstraintViolationException => KernelConstraintViolationException}
 import org.neo4j.internal.kernel.api.TokenNameLookup
 import org.neo4j.internal.kernel.api.exceptions.KernelException
 

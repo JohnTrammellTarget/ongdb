@@ -23,15 +23,23 @@
 package org.neo4j.cypher.internal.compatibility
 
 import org.neo4j.cypher.internal.compatibility.v3_6.runtime.executionplan.ExecutionPlan
-import org.neo4j.cypher.internal.compatibility.v3_6.runtime.executionplan.procs.{ProcedureCallExecutionPlan, SchemaWriteExecutionPlan}
+import org.neo4j.cypher.internal.compatibility.v3_6.runtime.executionplan.procs.ProcedureCallExecutionPlan
+import org.neo4j.cypher.internal.compatibility.v3_6.runtime.executionplan.procs.SchemaWriteExecutionPlan
 import org.neo4j.cypher.internal.compiler.v3_6.phases.LogicalPlanState
 import org.neo4j.cypher.internal.compiler.v3_6.planner.CantCompileQueryException
 import org.neo4j.cypher.internal.planner.v3_6.spi.IndexDescriptor
-import org.neo4j.cypher.internal.runtime.interpreted.commands.convert.{CommunityExpressionConverter, ExpressionConverters}
-import org.neo4j.cypher.internal.runtime.{InternalQueryType, ProcedureCallMode, QueryContext, SCHEMA_WRITE}
+import org.neo4j.cypher.internal.runtime.interpreted.commands.convert.CommunityExpressionConverter
+import org.neo4j.cypher.internal.runtime.interpreted.commands.convert.ExpressionConverters
+import org.neo4j.cypher.internal.runtime.InternalQueryType
+import org.neo4j.cypher.internal.runtime.ProcedureCallMode
+import org.neo4j.cypher.internal.runtime.QueryContext
+import org.neo4j.cypher.internal.runtime.SCHEMA_WRITE
+import org.neo4j.cypher.internal.v3_6.expressions.LabelName
+import org.neo4j.cypher.internal.v3_6.expressions.PropertyKeyName
+import org.neo4j.cypher.internal.v3_6.expressions.RelTypeName
 import org.neo4j.cypher.internal.v3_6.logical.plans._
-import org.neo4j.cypher.internal.v3_6.expressions.{LabelName, PropertyKeyName, RelTypeName}
-import org.neo4j.cypher.internal.v3_6.util.{LabelId, PropertyKeyId}
+import org.neo4j.cypher.internal.v3_6.util.LabelId
+import org.neo4j.cypher.internal.v3_6.util.PropertyKeyId
 
 /**
   * This runtime takes on queries that require no planning, such as procedures and schema commands

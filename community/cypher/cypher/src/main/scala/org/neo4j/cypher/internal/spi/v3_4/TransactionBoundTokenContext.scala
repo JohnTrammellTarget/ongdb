@@ -26,7 +26,8 @@ import org.neo4j.cypher.internal.planner.v3_4.spi.TokenContext
 import org.neo4j.internal.kernel.api.TokenRead
 import org.neo4j.internal.kernel.api.exceptions.LabelNotFoundKernelException
 import org.neo4j.kernel.api.KernelTransaction
-import org.neo4j.kernel.api.exceptions.{PropertyKeyNotFoundException, RelationshipTypeNotFoundException}
+import org.neo4j.kernel.api.exceptions.PropertyKeyNotFoundException
+import org.neo4j.kernel.api.exceptions.RelationshipTypeNotFoundException
 
 abstract class TransactionBoundTokenContext(txSupplier: () => KernelTransaction) extends TokenContext {
 

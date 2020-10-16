@@ -30,27 +30,53 @@ import org.neo4j.cypher.internal._
 import org.neo4j.cypher.internal.compatibility.CompatibilityInternalExecutionResult
 import org.neo4j.cypher.internal.compatibility.v3_1.ExecutionResultWrapper.asKernelNotification
 import org.neo4j.cypher.internal.compiler.v3_1
-import org.neo4j.cypher.internal.compiler.v3_1.executionplan.{InternalExecutionResult => InternalExecutionResult3_1, _}
-import org.neo4j.cypher.internal.compiler.v3_1.spi.{InternalResultRow, InternalResultVisitor}
-import org.neo4j.cypher.internal.compiler.v3_1.{PlannerName, ExplainMode => ExplainModev3_1, NormalMode => NormalModev3_1, ProfileMode => ProfileModev3_1, _}
-import org.neo4j.cypher.internal.frontend.v3_1.notification.{DeprecatedPlannerNotification, InternalNotification, PlannerUnsupportedNotification, RuntimeUnsupportedNotification, _}
-import org.neo4j.cypher.internal.frontend.v3_1.{SemanticDirection => SemanticDirection3_1, symbols => symbols3_1}
+import org.neo4j.cypher.internal.compiler.v3_1.executionplan.{InternalExecutionResult => InternalExecutionResult3_1}
+import org.neo4j.cypher.internal.compiler.v3_1.executionplan._
+import org.neo4j.cypher.internal.compiler.v3_1.spi.InternalResultRow
+import org.neo4j.cypher.internal.compiler.v3_1.spi.InternalResultVisitor
+import org.neo4j.cypher.internal.compiler.v3_1.PlannerName
+import org.neo4j.cypher.internal.compiler.v3_1.{ExplainMode => ExplainModev3_1}
+import org.neo4j.cypher.internal.compiler.v3_1.{NormalMode => NormalModev3_1}
+import org.neo4j.cypher.internal.compiler.v3_1.{ProfileMode => ProfileModev3_1}
+import org.neo4j.cypher.internal.compiler.v3_1._
+import org.neo4j.cypher.internal.frontend.v3_1.notification.DeprecatedPlannerNotification
+import org.neo4j.cypher.internal.frontend.v3_1.notification.InternalNotification
+import org.neo4j.cypher.internal.frontend.v3_1.notification.PlannerUnsupportedNotification
+import org.neo4j.cypher.internal.frontend.v3_1.notification.RuntimeUnsupportedNotification
+import org.neo4j.cypher.internal.frontend.v3_1.notification._
+import org.neo4j.cypher.internal.frontend.v3_1.{symbols => symbols3_1}
+import org.neo4j.cypher.internal.frontend.v3_1.{SemanticDirection => SemanticDirection3_1}
 import org.neo4j.cypher.internal.runtime.planDescription.InternalPlanDescription.Arguments
 import org.neo4j.cypher.internal.runtime.planDescription.InternalPlanDescription.Arguments._
-import org.neo4j.cypher.internal.runtime.planDescription.{Argument, Children, NoChildren, PlanDescriptionImpl, SingleChild, TwoChildren, InternalPlanDescription => InternalPlanDescription3_4}
-import org.neo4j.cypher.internal.runtime.{ExplainMode, NormalMode, ProfileMode, QueryStatistics}
+import org.neo4j.cypher.internal.runtime.planDescription.Argument
+import org.neo4j.cypher.internal.runtime.planDescription.Children
+import org.neo4j.cypher.internal.runtime.planDescription.NoChildren
+import org.neo4j.cypher.internal.runtime.planDescription.PlanDescriptionImpl
+import org.neo4j.cypher.internal.runtime.planDescription.SingleChild
+import org.neo4j.cypher.internal.runtime.planDescription.TwoChildren
+import org.neo4j.cypher.internal.runtime.planDescription.{InternalPlanDescription => InternalPlanDescription3_4}
+import org.neo4j.cypher.internal.runtime.ExplainMode
+import org.neo4j.cypher.internal.runtime.NormalMode
+import org.neo4j.cypher.internal.runtime.ProfileMode
+import org.neo4j.cypher.internal.runtime.QueryStatistics
+import org.neo4j.cypher.internal.v3_6.expressions.SemanticDirection.BOTH
+import org.neo4j.cypher.internal.v3_6.expressions.SemanticDirection.INCOMING
+import org.neo4j.cypher.internal.v3_6.expressions.SemanticDirection.OUTGOING
 import org.neo4j.cypher.internal.v3_6.logical.plans.QualifiedName
+import org.neo4j.cypher.internal.v3_6.util.attribution.Id
+import org.neo4j.cypher.internal.v3_6.util.{symbols => symbolsv3_6}
 import org.neo4j.cypher.result.QueryResult
 import org.neo4j.cypher.result.QueryResult.Record
 import org.neo4j.graphdb
-import org.neo4j.graphdb.Result.{ResultRow, ResultVisitor}
-import org.neo4j.graphdb.impl.notification.{NotificationCode, NotificationDetail}
-import org.neo4j.graphdb.{InputPosition, Notification, ResourceIterator}
+import org.neo4j.graphdb.Result.ResultRow
+import org.neo4j.graphdb.Result.ResultVisitor
+import org.neo4j.graphdb.impl.notification.NotificationCode
+import org.neo4j.graphdb.impl.notification.NotificationDetail
+import org.neo4j.graphdb.InputPosition
+import org.neo4j.graphdb.Notification
+import org.neo4j.graphdb.ResourceIterator
 import org.neo4j.kernel.impl.util.ValueUtils
 import org.neo4j.values.AnyValue
-import org.neo4j.cypher.internal.v3_6.expressions.SemanticDirection.{BOTH, INCOMING, OUTGOING}
-import org.neo4j.cypher.internal.v3_6.util.attribution.Id
-import org.neo4j.cypher.internal.v3_6.util.{symbols => symbolsv3_6}
 
 import scala.collection.JavaConverters._
 
@@ -98,7 +124,7 @@ class ExecutionResultWrapper(val inner: InternalExecutionResult3_1,
 
   private def lift(planDescription: v3_1.planDescription.InternalPlanDescription): InternalPlanDescription3_4 = {
 
-    import v3_1.planDescription.InternalPlanDescription.{Arguments => Arguments3_1}
+    import org.neo4j.cypher.internal.compiler.v3_1.planDescription.InternalPlanDescription.{Arguments => Arguments3_1}
 
     val name: String = planDescription.name
     val children: Children = planDescription.children match {

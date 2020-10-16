@@ -60,7 +60,8 @@ abstract class CursorIterator[T] extends Iterator[T] {
 }
 
 class RelationshipCursorIterator(selectionCursor: RelationshipSelectionCursor) extends RelationshipIterator {
-  import RelationshipCursorIterator.{NOT_INITIALIZED, NO_ID}
+  import org.neo4j.cypher.internal.spi.RelationshipCursorIterator.NOT_INITIALIZED
+  import org.neo4j.cypher.internal.spi.RelationshipCursorIterator.NO_ID
 
   private var _next = NOT_INITIALIZED
   private var typeId: Int = NO_ID

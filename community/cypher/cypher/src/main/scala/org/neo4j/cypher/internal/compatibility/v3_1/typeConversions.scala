@@ -23,10 +23,14 @@
 package org.neo4j.cypher.internal.compatibility.v3_1
 
 import org.neo4j.cypher.internal.compiler.v3_1.helpers.RuntimeTypeConverter
-import org.neo4j.cypher.internal.compiler.v3_1.{CRS, Coordinate, Geometry, Point}
+import org.neo4j.cypher.internal.compiler.v3_1.CRS
+import org.neo4j.cypher.internal.compiler.v3_1.Coordinate
+import org.neo4j.cypher.internal.compiler.v3_1.Geometry
+import org.neo4j.cypher.internal.compiler.v3_1.Point
 import org.neo4j.cypher.internal.frontend.v3_1.helpers.Eagerly
 import org.neo4j.graphdb.spatial
-import org.neo4j.values.storable.{CoordinateReferenceSystem, Values}
+import org.neo4j.values.storable.CoordinateReferenceSystem
+import org.neo4j.values.storable.Values
 
 import scala.collection.JavaConverters._
 

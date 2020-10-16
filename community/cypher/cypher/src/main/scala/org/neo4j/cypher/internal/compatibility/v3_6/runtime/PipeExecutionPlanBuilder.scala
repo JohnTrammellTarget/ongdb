@@ -25,8 +25,12 @@ package org.neo4j.cypher.internal.compatibility.v3_6.runtime
 import org.neo4j.cypher.internal.planner.v3_6.spi.TokenContext
 import org.neo4j.cypher.internal.runtime.interpreted.InterpretedPipeBuilder
 import org.neo4j.cypher.internal.runtime.interpreted.commands.convert.ExpressionConverters
-import org.neo4j.cypher.internal.runtime.interpreted.pipes.{OwningPipeAsserter, Pipe, PipeBuilderFactory, PipeExecutionBuilderContext}
-import org.neo4j.cypher.internal.v3_6.logical.plans.{LogicalPlan, LogicalPlans}
+import org.neo4j.cypher.internal.runtime.interpreted.pipes.OwningPipeAsserter
+import org.neo4j.cypher.internal.runtime.interpreted.pipes.Pipe
+import org.neo4j.cypher.internal.runtime.interpreted.pipes.PipeBuilderFactory
+import org.neo4j.cypher.internal.runtime.interpreted.pipes.PipeExecutionBuilderContext
+import org.neo4j.cypher.internal.v3_6.logical.plans.LogicalPlan
+import org.neo4j.cypher.internal.v3_6.logical.plans.LogicalPlans
 
 class PipeExecutionPlanBuilder(pipeBuilderFactory: PipeBuilderFactory,
                                expressionConverters: ExpressionConverters) {

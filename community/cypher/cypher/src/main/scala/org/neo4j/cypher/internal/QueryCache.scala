@@ -22,7 +22,8 @@
  */
 package org.neo4j.cypher.internal
 
-import com.github.benmanes.caffeine.cache.{Cache, Caffeine}
+import com.github.benmanes.caffeine.cache.Cache
+import com.github.benmanes.caffeine.cache.Caffeine
 import org.neo4j.cypher.internal.QueryCache.ParameterTypeMap
 import org.neo4j.helpers.collection.Pair
 import org.neo4j.kernel.impl.query.TransactionalContext
@@ -71,7 +72,7 @@ class QueryCache[QUERY_REP <: AnyRef, QUERY_KEY <: Pair[QUERY_REP, ParameterType
 
   private val inner: Cache[QUERY_KEY, CachedValue] = Caffeine.newBuilder().maximumSize(maximumSize).build[QUERY_KEY, CachedValue]()
 
-  import QueryCache.NOT_PRESENT
+  import org.neo4j.cypher.internal.QueryCache.NOT_PRESENT
 
   /*
     * The cached value wraps the value and maintains a count of how many times it has been fetched from the cache

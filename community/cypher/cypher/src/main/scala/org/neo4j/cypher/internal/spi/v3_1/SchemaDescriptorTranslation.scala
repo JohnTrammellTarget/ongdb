@@ -23,9 +23,12 @@
 package org.neo4j.cypher.internal.spi.v3_1
 
 import org.neo4j.cypher.internal.compiler.v3_1.spi.SchemaTypes
-import org.neo4j.internal.kernel.api.{IndexReference => KernelIndexReference}
 import org.neo4j.internal.kernel.api.schema.SchemaDescriptor
-import org.neo4j.kernel.api.schema.constraints.{ConstraintDescriptorFactory, NodeExistenceConstraintDescriptor, RelExistenceConstraintDescriptor, UniquenessConstraintDescriptor => KernelUniquenessConstraint}
+import org.neo4j.internal.kernel.api.{IndexReference => KernelIndexReference}
+import org.neo4j.kernel.api.schema.constraints.ConstraintDescriptorFactory
+import org.neo4j.kernel.api.schema.constraints.NodeExistenceConstraintDescriptor
+import org.neo4j.kernel.api.schema.constraints.RelExistenceConstraintDescriptor
+import org.neo4j.kernel.api.schema.constraints.{UniquenessConstraintDescriptor => KernelUniquenessConstraint}
 
 trait SchemaDescriptorTranslation {
   implicit def toCypher(index: KernelIndexReference): SchemaTypes.IndexDescriptor = {
