@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -38,6 +38,7 @@ class StubbedLogicalPlanningConfiguration(val parent: LogicalPlanningConfigurati
   self =>
 
   var knownLabels: Set[String] = Set.empty
+  var knownRelationships: Set[String] = Set.empty
   var cardinality: PartialFunction[PlannerQuery, Cardinality] = PartialFunction.empty
   var cost: PartialFunction[(LogicalPlan, QueryGraphSolverInput, Cardinalities), Cost] = PartialFunction.empty
   var labelCardinality: Map[String, Cardinality] = Map.empty

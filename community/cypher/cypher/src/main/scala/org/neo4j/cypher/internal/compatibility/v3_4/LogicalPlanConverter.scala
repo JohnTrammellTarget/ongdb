@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -38,17 +38,17 @@ import org.neo4j.cypher.internal.planner.v3_6.spi.PlanningAttributes.{Solveds =>
 import org.neo4j.cypher.internal.util.v3_4.{InputPosition => InputPositionV3_4}
 import org.neo4j.cypher.internal.util.v3_4.{symbols => symbolsV3_4}
 import org.neo4j.cypher.internal.util.{v3_4 => utilv3_4}
-import org.neo4j.cypher.internal.v3_4.expressions.{SemanticDirection => SemanticDirectionV3_4}
 import org.neo4j.cypher.internal.v3_4.expressions.{Expression => ExpressionV3_4}
+import org.neo4j.cypher.internal.v3_4.expressions.{SemanticDirection => SemanticDirectionV3_4}
 import org.neo4j.cypher.internal.v3_4.logical.plans.{LogicalPlan => LogicalPlanV3_4}
 import org.neo4j.cypher.internal.v3_4.logical.{plans => plansV3_4}
 import org.neo4j.cypher.internal.v3_4.{expressions => expressionsv3_4}
 import org.neo4j.cypher.internal.v3_6.expressions.LogicalVariable
 import org.neo4j.cypher.internal.v3_6.expressions.PropertyKeyName
-import org.neo4j.cypher.internal.v3_6.expressions.{RelTypeName => RelTypeNamev3_6}
-import org.neo4j.cypher.internal.v3_6.expressions.{LabelName => LabelNamev3_6}
-import org.neo4j.cypher.internal.v3_6.expressions.{SemanticDirection => SemanticDirectionv3_6}
 import org.neo4j.cypher.internal.v3_6.expressions.{Expression => Expressionv3_6}
+import org.neo4j.cypher.internal.v3_6.expressions.{LabelName => LabelNamev3_6}
+import org.neo4j.cypher.internal.v3_6.expressions.{RelTypeName => RelTypeNamev3_6}
+import org.neo4j.cypher.internal.v3_6.expressions.{SemanticDirection => SemanticDirectionv3_6}
 import org.neo4j.cypher.internal.v3_6.logical.plans.DoNotGetValue
 import org.neo4j.cypher.internal.v3_6.logical.plans.FieldSignature
 import org.neo4j.cypher.internal.v3_6.logical.plans.IndexOrderNone
@@ -59,12 +59,12 @@ import org.neo4j.cypher.internal.v3_6.logical.plans.UserFunctionSignature
 import org.neo4j.cypher.internal.v3_6.logical.plans.{LogicalPlan => LogicalPlanv3_6}
 import org.neo4j.cypher.internal.v3_6.logical.{plans => plansv3_6}
 import org.neo4j.cypher.internal.v3_6.util.Rewritable.RewritableAny
+import org.neo4j.cypher.internal.v3_6.util._
 import org.neo4j.cypher.internal.v3_6.util.attribution.IdGen
 import org.neo4j.cypher.internal.v3_6.util.symbols.CypherType
 import org.neo4j.cypher.internal.v3_6.util.{symbols => symbolsv3_6}
-import org.neo4j.cypher.internal.v3_6.util._
-import org.neo4j.cypher.internal.v3_6.{util => utilv3_6}
 import org.neo4j.cypher.internal.v3_6.{expressions => expressionsv3_6}
+import org.neo4j.cypher.internal.v3_6.{util => utilv3_6}
 
 import scala.collection.mutable
 import scala.collection.mutable.{HashMap => MutableHashMap}

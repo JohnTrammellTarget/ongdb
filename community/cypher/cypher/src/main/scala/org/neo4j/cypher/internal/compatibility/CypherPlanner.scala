@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -23,13 +23,13 @@
 package org.neo4j.cypher.internal.compatibility
 
 import org.neo4j.cypher.CypherException
+import org.neo4j.cypher.internal.PreParsedQuery
+import org.neo4j.cypher.internal.ReusabilityState
 import org.neo4j.cypher.internal.compiler.v3_6.phases.LogicalPlanState
 import org.neo4j.cypher.internal.compiler.v3_6.phases.PlannerContext
 import org.neo4j.cypher.internal.v3_6.frontend.PlannerName
 import org.neo4j.cypher.internal.v3_6.frontend.phases.CompilationPhaseTracer
 import org.neo4j.cypher.internal.v3_6.util.InternalNotification
-import org.neo4j.cypher.internal.PreParsedQuery
-import org.neo4j.cypher.internal.ReusabilityState
 import org.neo4j.kernel.impl.query.TransactionalContext
 import org.neo4j.values.virtual.MapValue
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -49,7 +49,7 @@ public class NativeNonUniqueIndexPopulatorTest<KEY extends NativeIndexKey<KEY>, 
     @Override
     NativeIndexPopulator<KEY,VALUE> createPopulator() throws IOException
     {
-        return testCase.populatorFactory.create( pageCache, fs, getIndexFile(), layout, monitor, indexDescriptor );
+        return testCase.populatorFactory.create( pageCache, fs, getIndexFile(), layout, monitor, indexDescriptor, tokenNameLookup );
     }
 
     @Override

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -23,6 +23,8 @@
 package org.neo4j.values.storable;
 
 import java.util.Comparator;
+
+import static org.neo4j.values.utils.ValueMath.HASH_CONSTANT;
 
 /**
  * A tuple of n values.
@@ -108,7 +110,7 @@ public class ValueTuple
         int result = 1;
         for ( Object value : values )
         {
-            result = 31 * result + value.hashCode();
+            result = HASH_CONSTANT * result + value.hashCode();
         }
         return result;
     }

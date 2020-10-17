@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -128,7 +128,7 @@ public class HTTP
         {
             HostnameVerifier hostnameVerifier = HttpsURLConnection.getDefaultHostnameVerifier();
             ClientConfig config = new DefaultClientConfig();
-            SSLContext ctx = SSLContext.getInstance( "TLS" );
+            SSLContext ctx = SSLContext.getInstance( "TLSv1.2" );
             ctx.init( null, new TrustManager[]{new InsecureTrustManager()}, null );
             Map<String,Object> properties = config.getProperties();
             properties.put( PROPERTY_HTTPS_PROPERTIES, new HTTPSProperties( hostnameVerifier, ctx ) );

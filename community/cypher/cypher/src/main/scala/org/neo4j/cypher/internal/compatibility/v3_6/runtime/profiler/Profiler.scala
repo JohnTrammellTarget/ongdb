@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -24,18 +24,18 @@ package org.neo4j.cypher.internal.compatibility.v3_6.runtime.profiler
 
 import org.eclipse.collections.api.iterator.LongIterator
 import org.neo4j.cypher.internal.compatibility.v3_6.runtime.helpers.PrimitiveLongHelper
-import org.neo4j.cypher.internal.runtime.interpreted.pipes.Pipe
-import org.neo4j.cypher.internal.runtime.interpreted.pipes.PipeDecorator
-import org.neo4j.cypher.internal.runtime.interpreted.pipes.QueryState
+import org.neo4j.cypher.internal.runtime.Operations
+import org.neo4j.cypher.internal.runtime.QueryContext
 import org.neo4j.cypher.internal.runtime.interpreted.DelegatingOperations
 import org.neo4j.cypher.internal.runtime.interpreted.DelegatingQueryContext
 import org.neo4j.cypher.internal.runtime.interpreted.ExecutionContext
-import org.neo4j.cypher.internal.runtime.Operations
-import org.neo4j.cypher.internal.runtime.QueryContext
+import org.neo4j.cypher.internal.runtime.interpreted.pipes.Pipe
+import org.neo4j.cypher.internal.runtime.interpreted.pipes.PipeDecorator
+import org.neo4j.cypher.internal.runtime.interpreted.pipes.QueryState
 import org.neo4j.cypher.internal.v3_6.util.attribution.Id
-import org.neo4j.internal.kernel.api.helpers.RelationshipSelectionCursor
 import org.neo4j.internal.kernel.api.NodeCursor
 import org.neo4j.internal.kernel.api.NodeValueIndexCursor
+import org.neo4j.internal.kernel.api.helpers.RelationshipSelectionCursor
 import org.neo4j.kernel.impl.api.store.RelationshipIterator
 import org.neo4j.kernel.impl.factory.DatabaseInfo
 import org.neo4j.kernel.impl.factory.Edition

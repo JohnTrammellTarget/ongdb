@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -24,7 +24,10 @@ package org.neo4j.index.internal.gbptree;
 
 import org.apache.commons.lang3.tuple.Pair;
 
-interface GBPTreeVisitor<KEY,VALUE> extends IdProvider.IdProviderVisitor
+import org.neo4j.util.VisibleForTesting;
+
+@VisibleForTesting
+public interface GBPTreeVisitor<KEY,VALUE> extends IdProvider.IdProviderVisitor
 {
     void meta( Meta meta );
 

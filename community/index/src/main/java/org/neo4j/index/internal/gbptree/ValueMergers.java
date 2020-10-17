@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -27,9 +27,9 @@ package org.neo4j.index.internal.gbptree;
  */
 public class ValueMergers
 {
-    private static final ValueMerger OVERWRITE = ( existingKey, newKey, existingValue, newValue ) -> newValue;
+    private static final ValueMerger OVERWRITE = ( existingKey, newKey, existingValue, newValue ) -> ValueMerger.MergeResult.REPLACED;
 
-    private static final ValueMerger KEEP_EXISTING = ( existingKey, newKey, existingValue, newValue ) -> null;
+    private static final ValueMerger KEEP_EXISTING = ( existingKey, newKey, existingValue, newValue ) -> ValueMerger.MergeResult.UNCHANGED;
 
     private ValueMergers()
     {

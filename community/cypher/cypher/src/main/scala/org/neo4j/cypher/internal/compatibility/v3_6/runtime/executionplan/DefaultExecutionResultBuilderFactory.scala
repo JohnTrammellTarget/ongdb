@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -24,9 +24,9 @@ package org.neo4j.cypher.internal.compatibility.v3_6.runtime.executionplan
 
 import org.neo4j.cypher.internal.compatibility.v3_6.runtime._
 import org.neo4j.cypher.internal.runtime._
-import org.neo4j.cypher.internal.runtime.interpreted.pipes._
 import org.neo4j.cypher.internal.runtime.interpreted.CSVResources
 import org.neo4j.cypher.internal.runtime.interpreted.ExecutionContext
+import org.neo4j.cypher.internal.runtime.interpreted.pipes._
 import org.neo4j.cypher.internal.v3_6.logical.plans.LogicalPlan
 import org.neo4j.cypher.internal.v3_6.util.CypherException
 import org.neo4j.cypher.result.QueryProfile

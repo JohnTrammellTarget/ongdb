@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -30,12 +30,12 @@ import org.neo4j.cypher.internal.runtime._
 import org.neo4j.cypher.internal.v3_6.logical.plans.QualifiedName
 import org.neo4j.cypher.internal.v3_6.util.symbols.CypherType
 import org.neo4j.cypher.internal.v3_6.util.symbols._
-import org.neo4j.cypher.result.QueryResult.QueryResultVisitor
-import org.neo4j.cypher.result.QueryResult.Record
-import org.neo4j.cypher.result.RuntimeResult.ConsumptionState
 import org.neo4j.cypher.result.OperatorProfile
 import org.neo4j.cypher.result.QueryProfile
+import org.neo4j.cypher.result.QueryResult.QueryResultVisitor
+import org.neo4j.cypher.result.QueryResult.Record
 import org.neo4j.cypher.result.RuntimeResult
+import org.neo4j.cypher.result.RuntimeResult.ConsumptionState
 import org.neo4j.graphdb.ResourceIterator
 import org.neo4j.graphdb.spatial.Geometry
 import org.neo4j.graphdb.spatial.Point

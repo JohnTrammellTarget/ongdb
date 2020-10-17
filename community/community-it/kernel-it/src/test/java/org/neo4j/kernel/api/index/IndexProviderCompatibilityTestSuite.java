@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -41,8 +41,10 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.neo4j.function.ThrowingConsumer;
+import org.neo4j.internal.kernel.api.TokenNameLookup;
 import org.neo4j.io.fs.FileSystemAbstraction;
 import org.neo4j.io.pagecache.PageCache;
+import org.neo4j.kernel.api.schema.SchemaTestUtil;
 import org.neo4j.kernel.impl.api.index.PhaseTracker;
 import org.neo4j.storageengine.api.schema.IndexDescriptor;
 import org.neo4j.storageengine.api.schema.StoreIndexDescriptor;
@@ -138,6 +140,7 @@ public abstract class IndexProviderCompatibilityTestSuite
         protected FileSystemAbstraction fs;
         protected IndexProvider indexProvider;
         protected StoreIndexDescriptor descriptor;
+        protected TokenNameLookup tokenNameLookup;
         final IndexProviderCompatibilityTestSuite testSuite;
         final List<NodeAndValue> valueSet1;
         final List<NodeAndValue> valueSet2;
@@ -276,6 +279,7 @@ public abstract class IndexProviderCompatibilityTestSuite
             pageCacheAndDependenciesRule = new PageCacheAndDependenciesRule().with( new DefaultFileSystemRule() ).with( testSuite.getClass() );
             random = new RandomRule();
             ruleChain = RuleChain.outerRule( pageCacheAndDependenciesRule ).around( random );
+            tokenNameLookup = SchemaTestUtil.simpleNameLookup;
         }
 
         void withPopulator( IndexPopulator populator, ThrowingConsumer<IndexPopulator,Exception> runWithPopulator ) throws Exception

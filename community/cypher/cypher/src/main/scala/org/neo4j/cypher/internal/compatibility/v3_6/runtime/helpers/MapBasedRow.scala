@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -22,10 +22,10 @@
  */
 package org.neo4j.cypher.internal.compatibility.v3_6.runtime.helpers
 
-import org.neo4j.graphdb.Result.ResultRow
 import org.neo4j.graphdb.Node
 import org.neo4j.graphdb.Path
 import org.neo4j.graphdb.Relationship
+import org.neo4j.graphdb.Result.ResultRow
 
 import scala.collection.Map
 

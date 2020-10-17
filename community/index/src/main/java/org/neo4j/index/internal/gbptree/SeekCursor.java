@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -375,7 +375,7 @@ class SeekCursor<KEY,VALUE> implements RawCursor<Hit<KEY,VALUE>,IOException>, Hi
     private boolean verifyExpectedFirstAfterGoToNext;
 
     /**
-     * Whether or not this seeker have been closed.
+     * Whether or not this seeker has been closed.
      */
     private boolean closed;
 
@@ -523,6 +523,10 @@ class SeekCursor<KEY,VALUE> implements RawCursor<Hit<KEY,VALUE>,IOException>, Hi
     @Override
     public boolean next() throws IOException
     {
+        if ( closed )
+        {
+            return false;
+        }
         try
         {
             while ( true )
@@ -591,6 +595,7 @@ class SeekCursor<KEY,VALUE> implements RawCursor<Hit<KEY,VALUE>,IOException>, Hi
                 }
 
                 // We've come too far and so this means the end of the result set
+                close();
                 return false;
             }
         }

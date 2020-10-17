@@ -14,7 +14,7 @@
     <packaging>pom</packaging>
 
     <name>ONgDB - Server Assembler</name>
-    <description>This project assembles the Neo4j stand-alone distribution,
+    <description>This project assembles the ONgDB stand-alone distribution,
         pulling together all the deliverable artifacts and packaging them
         into a downloadable installer.
     </description>

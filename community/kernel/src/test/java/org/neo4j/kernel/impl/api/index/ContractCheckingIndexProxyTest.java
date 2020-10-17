@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -344,6 +344,6 @@ public class ContractCheckingIndexProxyTest
 
     private ContractCheckingIndexProxy newContractCheckingIndexProxy( IndexProxy inner )
     {
-        return new ContractCheckingIndexProxy( inner, false );
+        return new ContractCheckingIndexProxy( inner );
     }
 }

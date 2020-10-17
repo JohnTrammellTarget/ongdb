@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -28,12 +28,12 @@ import org.neo4j.cypher.internal.compatibility.v3_6.runtime.executionplan.procs.
 import org.neo4j.cypher.internal.compiler.v3_6.phases.LogicalPlanState
 import org.neo4j.cypher.internal.compiler.v3_6.planner.CantCompileQueryException
 import org.neo4j.cypher.internal.planner.v3_6.spi.IndexDescriptor
-import org.neo4j.cypher.internal.runtime.interpreted.commands.convert.CommunityExpressionConverter
-import org.neo4j.cypher.internal.runtime.interpreted.commands.convert.ExpressionConverters
 import org.neo4j.cypher.internal.runtime.InternalQueryType
 import org.neo4j.cypher.internal.runtime.ProcedureCallMode
 import org.neo4j.cypher.internal.runtime.QueryContext
 import org.neo4j.cypher.internal.runtime.SCHEMA_WRITE
+import org.neo4j.cypher.internal.runtime.interpreted.commands.convert.CommunityExpressionConverter
+import org.neo4j.cypher.internal.runtime.interpreted.commands.convert.ExpressionConverters
 import org.neo4j.cypher.internal.v3_6.expressions.LabelName
 import org.neo4j.cypher.internal.v3_6.expressions.PropertyKeyName
 import org.neo4j.cypher.internal.v3_6.expressions.RelTypeName

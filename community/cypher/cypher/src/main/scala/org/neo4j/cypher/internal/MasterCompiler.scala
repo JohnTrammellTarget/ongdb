@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -24,6 +24,8 @@ package org.neo4j.cypher.internal
 
 import java.time.Clock
 
+import org.neo4j.cypher.InvalidArgumentException
+import org.neo4j.cypher._
 import org.neo4j.cypher.internal.compatibility.v3_6.runtime.helpers.InternalWrapping.asKernelNotification
 import org.neo4j.cypher.internal.compiler.v3_6.StatsDivergenceCalculator
 import org.neo4j.cypher.internal.compiler.v3_6._
@@ -31,8 +33,6 @@ import org.neo4j.cypher.internal.v3_6.frontend.phases.CompilationPhaseTracer
 import org.neo4j.cypher.internal.v3_6.frontend.phases.RecordingNotificationLogger
 import org.neo4j.cypher.internal.v3_6.util.DeprecatedStartNotification
 import org.neo4j.cypher.internal.v3_6.util.{SyntaxException => InternalSyntaxException}
-import org.neo4j.cypher.InvalidArgumentException
-import org.neo4j.cypher._
 import org.neo4j.graphdb.Notification
 import org.neo4j.kernel.impl.query.TransactionalContext
 import org.neo4j.values.virtual.MapValue

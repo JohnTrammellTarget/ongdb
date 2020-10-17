@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -34,11 +34,11 @@ import org.neo4j.cypher.internal.v3_6.logical.plans.IndexOrder
 import org.neo4j.cypher.internal.v3_6.logical.plans.QualifiedName
 import org.neo4j.graphdb.Path
 import org.neo4j.graphdb.PropertyContainer
-import org.neo4j.internal.kernel.api.helpers.RelationshipSelectionCursor
-import org.neo4j.internal.kernel.api.procs.ProcedureCallContext
 import org.neo4j.internal.kernel.api.IndexQuery
 import org.neo4j.internal.kernel.api.IndexReference
 import org.neo4j.internal.kernel.api.NodeValueIndexCursor
+import org.neo4j.internal.kernel.api.helpers.RelationshipSelectionCursor
+import org.neo4j.internal.kernel.api.procs.ProcedureCallContext
 import org.neo4j.kernel.impl.api.store.RelationshipIterator
 import org.neo4j.kernel.impl.core.EmbeddedProxySPI
 import org.neo4j.values.AnyValue

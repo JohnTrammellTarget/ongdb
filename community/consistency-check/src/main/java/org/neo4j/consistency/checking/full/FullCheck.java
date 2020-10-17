@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -44,12 +44,14 @@ import org.neo4j.consistency.store.RecordAccess;
 import org.neo4j.helpers.collection.Iterables;
 import org.neo4j.helpers.progress.ProgressListener;
 import org.neo4j.helpers.progress.ProgressMonitorFactory;
+import org.neo4j.internal.kernel.api.TokenNameLookup;
 import org.neo4j.kernel.api.direct.DirectStoreAccess;
 import org.neo4j.kernel.api.index.IndexAccessor;
 import org.neo4j.kernel.api.labelscan.LabelScanStore;
 import org.neo4j.kernel.configuration.Config;
 import org.neo4j.kernel.impl.annotations.ReporterFactory;
 import org.neo4j.kernel.impl.api.CountsAccessor;
+import org.neo4j.kernel.impl.api.NonTransactionalTokenNameLookup;
 import org.neo4j.kernel.impl.api.index.sampling.IndexSamplingConfig;
 import org.neo4j.kernel.impl.store.RecordStore;
 import org.neo4j.kernel.impl.store.StoreAccess;
@@ -168,13 +170,14 @@ public class FullCheck
         ProgressMonitorFactory.MultiPartBuilder progress = progressFactory.multipleParts(
                 "Full Consistency Check" );
         final StoreAccess nativeStores = directStoreAccess.nativeStores();
+        TokenNameLookup tokenNameLookup = new NonTransactionalTokenNameLookup( directStoreAccess.tokenHolders(), true /*include token ids too*/ );
         try ( IndexAccessors indexes =
-                      new IndexAccessors( directStoreAccess.indexes(), nativeStores.getSchemaStore(), samplingConfig ) )
+                      new IndexAccessors( directStoreAccess.indexes(), nativeStores.getSchemaStore(), samplingConfig, tokenNameLookup ) )
         {
             MultiPassStore.Factory multiPass = new MultiPassStore.Factory(
                     decorator, recordAccess, cacheAccess, report, reportMonitor );
             ConsistencyCheckTasks taskCreator = new ConsistencyCheckTasks( progress, processEverything,
-                    nativeStores, statistics, cacheAccess, directStoreAccess.labelScanStore(), indexes, directStoreAccess.tokenHolders(),
+                    nativeStores, statistics, cacheAccess, directStoreAccess.labelScanStore(), indexes, tokenNameLookup,
                     multiPass, reporter, threads );
 
             if ( checkIndexStructure )

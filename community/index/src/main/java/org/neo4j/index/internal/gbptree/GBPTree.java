@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -1388,9 +1388,20 @@ public class GBPTree<KEY,VALUE> implements Closeable
         @Override
         public void merge( KEY key, VALUE value, ValueMerger<KEY,VALUE> valueMerger )
         {
+            internalMerge( key, value, valueMerger, true );
+        }
+
+        @Override
+        public void mergeIfExists( KEY key, VALUE value, ValueMerger<KEY,VALUE> valueMerger )
+        {
+            internalMerge( key, value, valueMerger, false );
+        }
+
+        private void internalMerge( KEY key, VALUE value, ValueMerger<KEY,VALUE> valueMerger, boolean createIfNotExists )
+        {
             try
             {
-                treeLogic.insert( cursor, structurePropagation, key, value, valueMerger,
+                treeLogic.insert( cursor, structurePropagation, key, value, valueMerger, createIfNotExists,
                         stableGeneration, unstableGeneration );
 
                 handleStructureChanges();

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -22,9 +22,9 @@
  */
 package org.neo4j.cypher.internal
 
-import org.neo4j.cypher.internal.compatibility._
 import org.neo4j.cypher.CypherRuntimeOption
 import org.neo4j.cypher.InvalidArgumentException
+import org.neo4j.cypher.internal.compatibility._
 
 object CommunityRuntimeFactory {
 

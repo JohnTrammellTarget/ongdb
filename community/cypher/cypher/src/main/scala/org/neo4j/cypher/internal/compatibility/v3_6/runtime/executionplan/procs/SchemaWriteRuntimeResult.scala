@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -25,10 +25,10 @@ package org.neo4j.cypher.internal.compatibility.v3_6.runtime.executionplan.procs
 import java.util
 
 import org.neo4j.cypher.internal.runtime._
-import org.neo4j.cypher.result.QueryResult.QueryResultVisitor
-import org.neo4j.cypher.result.RuntimeResult.ConsumptionState
 import org.neo4j.cypher.result.QueryProfile
+import org.neo4j.cypher.result.QueryResult.QueryResultVisitor
 import org.neo4j.cypher.result.RuntimeResult
+import org.neo4j.cypher.result.RuntimeResult.ConsumptionState
 import org.neo4j.graphdb.ResourceIterator
 import org.neo4j.helpers.collection.Iterators
 

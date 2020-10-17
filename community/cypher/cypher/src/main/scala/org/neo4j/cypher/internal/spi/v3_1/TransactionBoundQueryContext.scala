@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -39,19 +39,19 @@ import org.neo4j.cypher.internal.compiler.v3_1.commands.expressions.KernelPredic
 import org.neo4j.cypher.internal.compiler.v3_1.commands.expressions.OnlyDirectionExpander
 import org.neo4j.cypher.internal.compiler.v3_1.commands.expressions.TypeAndDirectionExpander
 import org.neo4j.cypher.internal.compiler.v3_1.pipes.matching.PatternNode
+import org.neo4j.cypher.internal.compiler.v3_1.spi.IdempotentResult
 import org.neo4j.cypher.internal.compiler.v3_1.spi.SchemaTypes.IndexDescriptor
 import org.neo4j.cypher.internal.compiler.v3_1.spi.SchemaTypes.NodePropertyExistenceConstraint
 import org.neo4j.cypher.internal.compiler.v3_1.spi.SchemaTypes.RelationshipPropertyExistenceConstraint
 import org.neo4j.cypher.internal.compiler.v3_1.spi.SchemaTypes.UniquenessConstraint
-import org.neo4j.cypher.internal.compiler.v3_1.spi.IdempotentResult
 import org.neo4j.cypher.internal.compiler.v3_1.spi._
-import org.neo4j.cypher.internal.frontend.v3_1.SemanticDirection.BOTH
-import org.neo4j.cypher.internal.frontend.v3_1.SemanticDirection.INCOMING
-import org.neo4j.cypher.internal.frontend.v3_1.SemanticDirection.OUTGOING
 import org.neo4j.cypher.internal.frontend.v3_1.Bound
 import org.neo4j.cypher.internal.frontend.v3_1.EntityNotFoundException
 import org.neo4j.cypher.internal.frontend.v3_1.FailedIndexException
 import org.neo4j.cypher.internal.frontend.v3_1.SemanticDirection
+import org.neo4j.cypher.internal.frontend.v3_1.SemanticDirection.BOTH
+import org.neo4j.cypher.internal.frontend.v3_1.SemanticDirection.INCOMING
+import org.neo4j.cypher.internal.frontend.v3_1.SemanticDirection.OUTGOING
 import org.neo4j.cypher.internal.javacompat.GraphDatabaseCypherService
 import org.neo4j.cypher.internal.runtime.ResourceManager
 import org.neo4j.cypher.internal.spi.CursorIterator

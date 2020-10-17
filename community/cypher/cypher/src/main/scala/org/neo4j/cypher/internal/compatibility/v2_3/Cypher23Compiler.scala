@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -29,16 +29,16 @@ import org.neo4j.cypher.internal._
 import org.neo4j.cypher.internal.compatibility._
 import org.neo4j.cypher.internal.compatibility.v2_3.helpers.as2_3
 import org.neo4j.cypher.internal.compiler.v2_3
+import org.neo4j.cypher.internal.compiler.v2_3.InfoLogger
+import org.neo4j.cypher.internal.compiler.v2_3._
 import org.neo4j.cypher.internal.compiler.v2_3.executionplan.EntityAccessor
 import org.neo4j.cypher.internal.compiler.v2_3.executionplan.{ExecutionPlan => ExecutionPlan_v2_3}
 import org.neo4j.cypher.internal.compiler.v2_3.spi.PlanContext
 import org.neo4j.cypher.internal.compiler.v2_3.spi.QueryContext
 import org.neo4j.cypher.internal.compiler.v2_3.tracing.rewriters.RewriterStepSequencer
-import org.neo4j.cypher.internal.compiler.v2_3.InfoLogger
 import org.neo4j.cypher.internal.compiler.v2_3.{ExplainMode => ExplainModev2_3}
 import org.neo4j.cypher.internal.compiler.v2_3.{NormalMode => NormalModev2_3}
 import org.neo4j.cypher.internal.compiler.v2_3.{ProfileMode => ProfileModev2_3}
-import org.neo4j.cypher.internal.compiler.v2_3._
 import org.neo4j.cypher.internal.frontend.v2_3.InputPosition
 import org.neo4j.cypher.internal.javacompat.ExecutionResult
 import org.neo4j.cypher.internal.runtime.interpreted.TransactionalContextWrapper

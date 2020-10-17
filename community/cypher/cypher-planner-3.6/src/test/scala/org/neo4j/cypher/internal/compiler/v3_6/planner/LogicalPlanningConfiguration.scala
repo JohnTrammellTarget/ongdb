@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -30,8 +30,10 @@ import org.neo4j.cypher.internal.planner.v3_6.spi.{GraphStatistics, IndexOrderCa
 import org.neo4j.cypher.internal.v3_6.logical.plans.{LogicalPlan, ProcedureSignature}
 import org.neo4j.cypher.internal.v3_6.ast.semantics.{ExpressionTypeInfo, SemanticTable}
 import org.neo4j.cypher.internal.v3_6.expressions.Expression
+import org.neo4j.cypher.internal.v3_6.util.RelTypeId
 import org.neo4j.cypher.internal.v3_6.util.symbols.TypeSpec
 import org.neo4j.cypher.internal.v3_6.util.{Cardinality, Cost, LabelId, PropertyKeyId}
+import org.neo4j.cypher.internal.v3_6.ast.semantics.{ExpressionTypeInfo, SemanticTable}
 
 import scala.collection.mutable
 
@@ -45,6 +47,7 @@ trait LogicalPlanningConfiguration {
   def procedureSignatures: Set[ProcedureSignature]
   def labelCardinality: Map[String, Cardinality]
   def knownLabels: Set[String]
+  def knownRelationships: Set[String]
   def labelsById: Map[Int, String]
   def qg: QueryGraph
 
@@ -65,6 +68,7 @@ class DelegatingLogicalPlanningConfiguration(val parent: LogicalPlanningConfigur
   override def indexes: Map[IndexDef, IndexType] = parent.indexes
   override def labelCardinality: Map[String, Cardinality] = parent.labelCardinality
   override def knownLabels: Set[String] = parent.knownLabels
+  override def knownRelationships = parent.knownRelationships
   override def labelsById: Map[Int, String] = parent.labelsById
   override def qg: QueryGraph = parent.qg
   override def procedureSignatures: Set[ProcedureSignature] = parent.procedureSignatures
@@ -86,6 +90,9 @@ trait LogicalPlanningConfigurationAdHocSemanticTable {
     def addPropertyKeyIfUnknown(property: String) =
       if (!table.resolvedPropertyKeyNames.contains(property))
         table.resolvedPropertyKeyNames.put(property, PropertyKeyId(table.resolvedPropertyKeyNames.size))
+    def addRelationshipIfUnknown(relationType: String) =
+      if (!table.resolvedRelTypeNames.contains(relationType))
+        table.resolvedRelTypeNames.put(relationType, RelTypeId(table.resolvedRelTypeNames.size))
 
     indexes.keys.foreach { case IndexDef(label, properties) =>
       addLabelIfUnknown(label)
@@ -94,6 +101,7 @@ trait LogicalPlanningConfigurationAdHocSemanticTable {
 
     labelCardinality.keys.foreach(addLabelIfUnknown)
     knownLabels.foreach(addLabelIfUnknown)
+    knownRelationships.foreach(addRelationshipIfUnknown)
 
     var theTable = table
     for((expr, typ) <- mappings) {

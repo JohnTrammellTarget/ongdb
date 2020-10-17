@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -23,17 +23,13 @@
 package org.neo4j.cypher.internal.compatibility.v3_4
 
 import org.neo4j.cypher.internal.frontend.v3_4.semantics.{SemanticTable => SemanticTableV3_4}
-import org.neo4j.cypher.internal.frontend.v3_4.{ast => astV3_4}
-import org.neo4j.cypher.internal.frontend.v3_4.{semantics => semanticsV3_4}
+import org.neo4j.cypher.internal.frontend.v3_4.{ast => astV3_4, semantics => semanticsV3_4}
 import org.neo4j.cypher.internal.util.v3_4.{InputPosition => InputPositionV3_4}
 import org.neo4j.cypher.internal.util.{v3_4 => utilV3_4}
 import org.neo4j.cypher.internal.v3_4.expressions.{Expression => ExpressionV3_4}
-import org.neo4j.cypher.internal.v3_6.ast.semantics.ExpressionTypeInfo
-import org.neo4j.cypher.internal.v3_6.ast.semantics.{SemanticTable => SemanticTablev3_6}
+import org.neo4j.cypher.internal.v3_6.ast.semantics.{ExpressionTypeInfo, SemanticTable => SemanticTablev3_6}
 import org.neo4j.cypher.internal.v3_6.expressions.{Expression => Expressionv3_6}
-import org.neo4j.cypher.internal.v3_6.{ast => astv3_6}
-import org.neo4j.cypher.internal.v3_6.{util => utilv3_6}
-import org.neo4j.cypher.internal.v3_6.{expressions => expressionsv3_6}
+import org.neo4j.cypher.internal.v3_6.{ast => astv3_6, expressions => expressionsv3_6, util => utilv3_6}
 
 import scala.collection.mutable
 

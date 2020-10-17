@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -56,6 +56,12 @@ public class FailedIndexProxy extends AbstractSwallowingIndexProxy
         this.indexUserDescription = indexUserDescription;
         this.indexCountsRemover = indexCountsRemover;
         this.log = logProvider.getLog( getClass() );
+    }
+
+    @Override
+    public void start()
+    {
+        // nothing to start
     }
 
     @Override

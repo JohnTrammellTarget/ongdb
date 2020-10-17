@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -29,14 +29,14 @@ import org.neo4j.cypher.internal._
 import org.neo4j.cypher.internal.compatibility._
 import org.neo4j.cypher.internal.compatibility.v3_1.helpers._
 import org.neo4j.cypher.internal.compiler.v3_1
+import org.neo4j.cypher.internal.compiler.v3_1.InfoLogger
+import org.neo4j.cypher.internal.compiler.v3_1._
 import org.neo4j.cypher.internal.compiler.v3_1.executionplan.{ExecutionPlan => ExecutionPlan_v3_1}
 import org.neo4j.cypher.internal.compiler.v3_1.executionplan.{InternalExecutionResult => InternalExecutionResult3_1}
 import org.neo4j.cypher.internal.compiler.v3_1.tracing.rewriters.RewriterStepSequencer
-import org.neo4j.cypher.internal.compiler.v3_1.InfoLogger
 import org.neo4j.cypher.internal.compiler.v3_1.{ExplainMode => ExplainModev3_1}
 import org.neo4j.cypher.internal.compiler.v3_1.{NormalMode => NormalModev3_1}
 import org.neo4j.cypher.internal.compiler.v3_1.{ProfileMode => ProfileModev3_1}
-import org.neo4j.cypher.internal.compiler.v3_1._
 import org.neo4j.cypher.internal.frontend.v3_1.{InputPosition => InputPosition3_1}
 import org.neo4j.cypher.internal.javacompat.ExecutionResult
 import org.neo4j.cypher.internal.runtime.interpreted.ValueConversion

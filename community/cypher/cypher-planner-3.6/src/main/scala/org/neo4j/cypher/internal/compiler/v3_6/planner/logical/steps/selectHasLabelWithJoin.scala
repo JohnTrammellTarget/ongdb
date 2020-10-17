@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -32,8 +32,8 @@ case object selectHasLabelWithJoin extends CandidateGenerator[LogicalPlan] {
 
   def apply(plan: LogicalPlan, queryGraph: QueryGraph, interestingOrder: InterestingOrder, context: LogicalPlanningContext): Seq[LogicalPlan] =
     unsolvedPreds(context.planningAttributes.solveds)(queryGraph.selections, plan).collect {
-      case s@HasLabels(id: Variable, Seq(labelName)) =>
-        val labelScan = context.logicalPlanProducer.planNodeByLabelScan(id.name, labelName, Seq(s), None, Set.empty, context)
-        context.logicalPlanProducer.planNodeHashJoin(Set(id.name), plan, labelScan, Seq.empty, context)
+      case s@HasLabels(Variable(varName), Seq(labelName)) if queryGraph.patternNodes.contains(varName) =>
+        val labelScan = context.logicalPlanProducer.planNodeByLabelScan(varName, labelName, Seq(s), None, Set.empty, context)
+        context.logicalPlanProducer.planNodeHashJoin(Set(varName), plan, labelScan, Seq.empty, context)
     }
 }

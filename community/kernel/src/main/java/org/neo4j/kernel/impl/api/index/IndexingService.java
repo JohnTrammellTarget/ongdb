@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -331,14 +331,12 @@ public class IndexingService extends LifecycleAdapter implements IndexingUpdateS
                 switch ( state )
                 {
                 case ONLINE:
-                    // Don't do anything, index is ok.
+                case FAILED:
+                    proxy.start();
                     break;
                 case POPULATING:
-                    // Remember for rebuilding
+                    // Remember for rebuilding right below in this method
                     rebuildingDescriptors.put( indexId, descriptor );
-                    break;
-                case FAILED:
-                    // Don't do anything, the user needs to drop the index and re-create
                     break;
                 default:
                     throw new IllegalStateException( "Unknown state: " + state );

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -21,6 +21,7 @@ package org.neo4j.cypher.internal.v3_6.ast.prettifier
 
 import org.neo4j.cypher.internal.v3_6.ast.{Skip, Statement, _}
 import org.neo4j.cypher.internal.v3_6.expressions.{NodePattern, PatternElement, PatternPart, RelationshipChain, _}
+import org.neo4j.cypher.internal.v3_6.ast.{AliasedReturnItem, AllNodes, AllRelationships, AscSortItem, Clause, Create, CreateGraph, CreateIndex, CreateNodeKeyConstraint, CreateNodePropertyExistenceConstraint, CreateRelationshipPropertyExistenceConstraint, CreateUnique, CreateUniquePropertyConstraint, CreateView, Delete, DescSortItem, DropGraph, DropIndex, DropNodeKeyConstraint, DropNodePropertyExistenceConstraint, DropRelationshipPropertyExistenceConstraint, DropUniquePropertyConstraint, DropView, Foreach, Limit, LoadCSV, Match, Merge, NodeByIdentifiedIndex, NodeByIds, NodeByIndexQuery, NodeByParameter, OrderBy, Query, QueryPart, RelationshipByIdentifiedIndex, RelationshipByIds, RelationshipByIndexQuery, RelationshipByParameter, Return, ReturnItem, SetClause, SetExactPropertiesFromMapItem, SetIncludingPropertiesFromMapItem, SetLabelItem, SetPropertyItem, SingleQuery, Skip, Start, Statement, UnaliasedReturnItem, UnionAll, UnionDistinct, UnresolvedCall, Unwind, With}
 
 case class Prettifier(mkStringOf: ExpressionStringifier) {
 

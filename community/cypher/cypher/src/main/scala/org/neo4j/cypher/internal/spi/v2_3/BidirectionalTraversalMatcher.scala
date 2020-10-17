@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -25,16 +25,16 @@ package org.neo4j.cypher.internal.spi.v2_3
 import java.util.function.Predicate
 
 import org.neo4j.cypher.internal.compiler.v2_3._
+import org.neo4j.cypher.internal.compiler.v2_3.pipes.EntityProducer
+import org.neo4j.cypher.internal.compiler.v2_3.pipes.QueryState
 import org.neo4j.cypher.internal.compiler.v2_3.pipes.matching.ExpanderStep
 import org.neo4j.cypher.internal.compiler.v2_3.pipes.matching.TraversalMatcher
 import org.neo4j.cypher.internal.compiler.v2_3.pipes.matching.TraversalPathExpander
-import org.neo4j.cypher.internal.compiler.v2_3.pipes.EntityProducer
-import org.neo4j.cypher.internal.compiler.v2_3.pipes.QueryState
 import org.neo4j.cypher.internal.compiler.v2_3.planDescription.Argument
-import org.neo4j.graphdb.impl.traversal.StandardBranchCollisionDetector
-import org.neo4j.graphdb.traversal._
 import org.neo4j.graphdb.Node
 import org.neo4j.graphdb.Path
+import org.neo4j.graphdb.impl.traversal.StandardBranchCollisionDetector
+import org.neo4j.graphdb.traversal._
 import org.neo4j.kernel.impl.traversal.BidirectionalTraversalDescriptionImpl
 import org.neo4j.kernel.impl.traversal.MonoDirectionalTraversalDescription
 

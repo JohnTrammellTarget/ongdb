@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -29,6 +29,7 @@ import java.util.regex.Pattern;
 import org.neo4j.hashing.HashFunction;
 
 import static org.neo4j.values.storable.Values.utf8Value;
+import static org.neo4j.values.utils.ValueMath.HASH_CONSTANT;
 
 /*
  * Just as a normal StringValue but is backed by a byte array and does string
@@ -152,7 +153,7 @@ public final class UTF8StringValue extends StringValue
 
         while ( cpc.i < len )
         {
-            hash = 31 * hash + (int) cpc.nextCodePoint();
+            hash = HASH_CONSTANT * hash + (int) cpc.nextCodePoint();
         }
         return hash;
     }

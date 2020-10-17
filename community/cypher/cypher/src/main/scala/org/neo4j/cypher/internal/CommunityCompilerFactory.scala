@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -22,6 +22,10 @@
  */
 package org.neo4j.cypher.internal
 
+import org.neo4j.cypher.CypherPlannerOption
+import org.neo4j.cypher.CypherRuntimeOption
+import org.neo4j.cypher.CypherUpdateStrategy
+import org.neo4j.cypher.CypherVersion
 import org.neo4j.cypher.internal.compatibility._
 import org.neo4j.cypher.internal.compatibility.v2_3.helpers._
 import org.neo4j.cypher.internal.compatibility.v3_1.helpers._
@@ -30,10 +34,6 @@ import org.neo4j.cypher.internal.compatibility.v3_6.Cypher35Planner
 import org.neo4j.cypher.internal.compiler.v3_6.CypherPlannerConfiguration
 import org.neo4j.cypher.internal.runtime.interpreted.LastCommittedTxIdProvider
 import org.neo4j.cypher.internal.v3_6.util.InvalidArgumentException
-import org.neo4j.cypher.CypherPlannerOption
-import org.neo4j.cypher.CypherRuntimeOption
-import org.neo4j.cypher.CypherUpdateStrategy
-import org.neo4j.cypher.CypherVersion
 import org.neo4j.helpers.Clock
 import org.neo4j.kernel.GraphDatabaseQueryService
 import org.neo4j.kernel.monitoring.{Monitors => KernelMonitors}

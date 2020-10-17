@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -1574,7 +1574,7 @@ public class GBPTreeTest
     }
 
     @Test
-    public void shouldThrowIllegalStateExceptionOnCallingNextAfterClose() throws Exception
+    public void shouldReturnFalseOnCallingNextAfterClose() throws Exception
     {
         // given
         try ( GBPTree<MutableLong,MutableLong> tree = index().build() )
@@ -1597,16 +1597,84 @@ public class GBPTreeTest
 
             for ( int i = 0; i < 2; i++ )
             {
-                try
+                assertFalse( seek.next() );
+            }
+        }
+    }
+
+    @Test
+    public void shouldReturnFalseOnCallingNextAfterExhausting() throws Exception
+    {
+        int amount = 10;
+        // given
+        try ( GBPTree<MutableLong,MutableLong> tree = index().build() )
+        {
+            try ( Writer<MutableLong,MutableLong> writer = tree.writer() )
+            {
+                MutableLong value = new MutableLong();
+                for ( int i = 0; i < amount; i++ )
                 {
-                    // when
-                    seek.next();
-                    fail( "Should have failed" );
+                    value.setValue( i );
+                    writer.put( value, value );
                 }
-                catch ( IllegalStateException e )
+            }
+
+            RawCursor<Hit<MutableLong,MutableLong>,IOException> seek =
+                    tree.seek( new MutableLong( 0 ), new MutableLong( Long.MAX_VALUE ) );
+            //noinspection StatementWithEmptyBody
+            while ( seek.next() )
+            {
+            }
+
+            try ( Writer<MutableLong,MutableLong> writer = tree.writer() )
+            {
+                MutableLong value = new MutableLong();
+                value.setValue( amount + 1 );
+                writer.put( value, value );
+            }
+
+            for ( int i = 0; i < 2; i++ )
+            {
+                assertFalse( seek.next() );
+            }
+        }
+    }
+
+    @Test
+    public void shouldReturnFalseOnCallingNextAfterExhaustingAndClose() throws Exception
+    {
+        int amount = 10;
+        // given
+        try ( GBPTree<MutableLong,MutableLong> tree = index().build() )
+        {
+            try ( Writer<MutableLong,MutableLong> writer = tree.writer() )
+            {
+                MutableLong value = new MutableLong();
+                for ( int i = 0; i < amount; i++ )
                 {
-                    // then good
+                    value.setValue( i );
+                    writer.put( value, value );
                 }
+            }
+
+            RawCursor<Hit<MutableLong,MutableLong>,IOException> seek =
+                    tree.seek( new MutableLong( 0 ), new MutableLong( Long.MAX_VALUE ));
+            //noinspection StatementWithEmptyBody
+            while ( seek.next() )
+            {
+            }
+            seek.close();
+
+            try ( Writer<MutableLong,MutableLong> writer = tree.writer() )
+            {
+                MutableLong value = new MutableLong();
+                value.setValue( amount + 1 );
+                writer.put( value, value );
+            }
+
+            for ( int i = 0; i < 2; i++ )
+            {
+                assertFalse( seek.next() );
             }
         }
     }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -43,15 +43,15 @@ import org.neo4j.cypher.internal.v3_6.logical.plans.IndexOrderNone
 import org.neo4j.cypher.internal.v3_6.logical.plans.ProcedureCall
 import org.neo4j.cypher.internal.v3_6.logical.{plans => plansv3_6}
 import org.neo4j.cypher.internal.v3_6.expressions.PathExpression
-import  org.neo4j.cypher.internal.v3_6.expressions.SemanticDirection
+import org.neo4j.cypher.internal.v3_6.expressions.SemanticDirection
 import org.neo4j.cypher.internal.v3_6.util.attribution.{SequentialIdGen => SequentialIdGenv3_6}
-import  org.neo4j.cypher.internal.v3_6.util.test_helpers.CypherFunSuite
+import org.neo4j.cypher.internal.v3_6.util.test_helpers.CypherFunSuite
 import org.neo4j.cypher.internal.v3_6.util.InputPosition
-import  org.neo4j.cypher.internal.v3_6.util.NonEmptyList
-import  org.neo4j.cypher.internal.v3_6.util.{symbols => symbolsv3_6}
+import org.neo4j.cypher.internal.v3_6.util.NonEmptyList
+import org.neo4j.cypher.internal.v3_6.util.{symbols => symbolsv3_6}
 import org.neo4j.cypher.internal.v3_6.{ast => astv3_6}
-import  org.neo4j.cypher.internal.v3_6.{util => utilv3_6}
-import  org.neo4j.cypher.internal.v3_6.{expressions => expressionsv3_6}
+import org.neo4j.cypher.internal.v3_6.{util => utilv3_6}
+import org.neo4j.cypher.internal.v3_6.{expressions => expressionsv3_6}
 import org.reflections.Reflections
 
 import scala.collection.JavaConverters._

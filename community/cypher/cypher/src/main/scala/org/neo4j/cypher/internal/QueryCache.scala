@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -22,8 +22,7 @@
  */
 package org.neo4j.cypher.internal
 
-import com.github.benmanes.caffeine.cache.Cache
-import com.github.benmanes.caffeine.cache.Caffeine
+import com.github.benmanes.caffeine.cache.{Cache, Caffeine}
 import org.neo4j.cypher.internal.QueryCache.ParameterTypeMap
 import org.neo4j.helpers.collection.Pair
 import org.neo4j.kernel.impl.query.TransactionalContext

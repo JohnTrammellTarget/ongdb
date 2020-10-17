@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -39,13 +39,13 @@ import org.neo4j.cypher.internal.compiler.v2_3.commands.expressions.OnlyDirectio
 import org.neo4j.cypher.internal.compiler.v2_3.commands.expressions.TypeAndDirectionExpander
 import org.neo4j.cypher.internal.compiler.v2_3.pipes.matching.PatternNode
 import org.neo4j.cypher.internal.compiler.v2_3.spi._
-import org.neo4j.cypher.internal.frontend.v2_3.SemanticDirection.BOTH
-import org.neo4j.cypher.internal.frontend.v2_3.SemanticDirection.INCOMING
-import org.neo4j.cypher.internal.frontend.v2_3.SemanticDirection.OUTGOING
 import org.neo4j.cypher.internal.frontend.v2_3.Bound
 import org.neo4j.cypher.internal.frontend.v2_3.EntityNotFoundException
 import org.neo4j.cypher.internal.frontend.v2_3.FailedIndexException
 import org.neo4j.cypher.internal.frontend.v2_3.SemanticDirection
+import org.neo4j.cypher.internal.frontend.v2_3.SemanticDirection.BOTH
+import org.neo4j.cypher.internal.frontend.v2_3.SemanticDirection.INCOMING
+import org.neo4j.cypher.internal.frontend.v2_3.SemanticDirection.OUTGOING
 import org.neo4j.cypher.internal.javacompat.GraphDatabaseCypherService
 import org.neo4j.cypher.internal.runtime.ResourceManager
 import org.neo4j.cypher.internal.runtime.interpreted._
@@ -65,19 +65,19 @@ import org.neo4j.internal.kernel.api.helpers.RelationshipSelections.allCursor
 import org.neo4j.internal.kernel.api.helpers.RelationshipSelections.incomingCursor
 import org.neo4j.internal.kernel.api.helpers.RelationshipSelections.outgoingCursor
 import org.neo4j.kernel.GraphDatabaseQueryService
+import org.neo4j.kernel.api.SilentTokenNameLookup
+import org.neo4j.kernel.api.StatementConstants
 import org.neo4j.kernel.api.exceptions.schema.AlreadyConstrainedException
 import org.neo4j.kernel.api.exceptions.schema.AlreadyIndexedException
 import org.neo4j.kernel.api.schema.SchemaDescriptorFactory
 import org.neo4j.kernel.api.schema.constraints.ConstraintDescriptorFactory
-import org.neo4j.kernel.api.SilentTokenNameLookup
-import org.neo4j.kernel.api.StatementConstants
 import org.neo4j.kernel.impl.core.EmbeddedProxySPI
 import org.neo4j.values.storable.Values
 
-import scala.collection.JavaConverters._
-import scala.collection.mutable.ArrayBuffer
 import scala.collection.Iterator
+import scala.collection.JavaConverters._
 import scala.collection.mutable
+import scala.collection.mutable.ArrayBuffer
 
 final class TransactionBoundQueryContext(tc: TransactionalContextWrapper, val resources: ResourceManager = new ResourceManager)
   extends TransactionBoundTokenContext(tc.kernelTransaction) with QueryContext with SchemaDescriptorTranslation {

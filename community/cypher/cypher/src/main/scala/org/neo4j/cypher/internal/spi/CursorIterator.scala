@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -60,8 +60,7 @@ abstract class CursorIterator[T] extends Iterator[T] {
 }
 
 class RelationshipCursorIterator(selectionCursor: RelationshipSelectionCursor) extends RelationshipIterator {
-  import org.neo4j.cypher.internal.spi.RelationshipCursorIterator.NOT_INITIALIZED
-  import org.neo4j.cypher.internal.spi.RelationshipCursorIterator.NO_ID
+  import RelationshipCursorIterator.{NOT_INITIALIZED, NO_ID}
 
   private var _next = NOT_INITIALIZED
   private var typeId: Int = NO_ID

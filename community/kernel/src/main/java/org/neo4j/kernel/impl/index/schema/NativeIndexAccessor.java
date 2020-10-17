@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -29,6 +29,7 @@ import java.util.function.Consumer;
 
 import org.neo4j.graphdb.ResourceIterator;
 import org.neo4j.helpers.collection.BoundedIterable;
+import org.neo4j.internal.kernel.api.TokenNameLookup;
 import org.neo4j.io.fs.FileSystemAbstraction;
 import org.neo4j.io.pagecache.IOLimiter;
 import org.neo4j.io.pagecache.PageCache;
@@ -52,10 +53,11 @@ public abstract class NativeIndexAccessor<KEY extends NativeIndexKey<KEY>, VALUE
     final NativeIndexHeaderWriter headerWriter;
 
     NativeIndexAccessor( PageCache pageCache, FileSystemAbstraction fs, File storeFile, IndexLayout<KEY,VALUE> layout,
-            IndexProvider.Monitor monitor, StoreIndexDescriptor descriptor, Consumer<PageCursor> additionalHeaderWriter, boolean readOnly )
+            IndexProvider.Monitor monitor, StoreIndexDescriptor descriptor, Consumer<PageCursor> additionalHeaderWriter, boolean readOnly,
+            TokenNameLookup tokenNameLookup )
     {
         super( pageCache, fs, storeFile, layout, monitor, descriptor, readOnly );
-        singleUpdater = new NativeIndexUpdater<>( layout.newKey(), layout.newValue() );
+        singleUpdater = new NativeIndexUpdater<>( layout.newKey(), layout.newValue(), descriptor, tokenNameLookup );
         headerWriter = new NativeIndexHeaderWriter( BYTE_ONLINE, additionalHeaderWriter );
     }
 

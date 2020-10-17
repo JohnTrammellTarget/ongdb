@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -25,16 +25,16 @@ package org.neo4j.cypher.internal.compatibility
 import java.io.PrintWriter
 
 import org.neo4j.cypher.exceptionHandler.RunSafely
-import org.neo4j.cypher.internal.runtime.planDescription.InternalPlanDescription
 import org.neo4j.cypher.internal.runtime.CloseReason
 import org.neo4j.cypher.internal.runtime.ExecutionMode
 import org.neo4j.cypher.internal.runtime.InternalExecutionResult
 import org.neo4j.cypher.internal.runtime.InternalQueryType
+import org.neo4j.cypher.internal.runtime.planDescription.InternalPlanDescription
 import org.neo4j.cypher.result.QueryResult.QueryResultVisitor
 import org.neo4j.graphdb
-import org.neo4j.graphdb.Result.ResultVisitor
 import org.neo4j.graphdb.Notification
 import org.neo4j.graphdb.ResourceIterator
+import org.neo4j.graphdb.Result.ResultVisitor
 import org.neo4j.kernel.api.query.ExecutingQuery
 import org.neo4j.kernel.impl.query.QueryExecutionMonitor
 

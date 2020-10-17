@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -26,6 +26,7 @@ import java.io.IOException;
 
 import org.neo4j.internal.kernel.api.IndexCapability;
 import org.neo4j.internal.kernel.api.InternalIndexState;
+import org.neo4j.internal.kernel.api.TokenNameLookup;
 import org.neo4j.internal.kernel.api.schema.IndexProviderDescriptor;
 import org.neo4j.io.fs.FileSystemAbstraction;
 import org.neo4j.io.pagecache.PageCache;
@@ -49,15 +50,17 @@ public class TrackingReadersIndexProvider extends IndexProvider
     }
 
     @Override
-    public IndexPopulator getPopulator( StoreIndexDescriptor descriptor, IndexSamplingConfig samplingConfig, ByteBufferFactory bufferFactory )
+    public IndexPopulator getPopulator( StoreIndexDescriptor descriptor, IndexSamplingConfig samplingConfig, ByteBufferFactory bufferFactory,
+            TokenNameLookup tokenNameLookup )
     {
-        return indexProvider.getPopulator( descriptor, samplingConfig, bufferFactory );
+        return indexProvider.getPopulator( descriptor, samplingConfig, bufferFactory, tokenNameLookup );
     }
 
     @Override
-    public IndexAccessor getOnlineAccessor( StoreIndexDescriptor descriptor, IndexSamplingConfig samplingConfig ) throws IOException
+    public IndexAccessor getOnlineAccessor( StoreIndexDescriptor descriptor, IndexSamplingConfig samplingConfig,
+            TokenNameLookup tokenNameLookup ) throws IOException
     {
-        return new TrackingReadersIndexAccessor( indexProvider.getOnlineAccessor( descriptor, samplingConfig ) );
+        return new TrackingReadersIndexAccessor( indexProvider.getOnlineAccessor( descriptor, samplingConfig, tokenNameLookup ) );
     }
 
     @Override

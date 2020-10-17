@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -35,10 +35,10 @@ import org.neo4j.cypher.internal.runtime.interpreted.pipes.QueryState
 import org.neo4j.cypher.internal.runtime.planDescription.Argument
 import org.neo4j.cypher.internal.v3_6.expressions.Expression
 import org.neo4j.cypher.internal.v3_6.logical.plans.ProcedureSignature
-import org.neo4j.cypher.internal.v3_6.util.attribution.Id
-import org.neo4j.cypher.internal.v3_6.util.symbols.CypherType
 import org.neo4j.cypher.internal.v3_6.util.InternalNotification
 import org.neo4j.cypher.internal.v3_6.util.InvalidArgumentException
+import org.neo4j.cypher.internal.v3_6.util.attribution.Id
+import org.neo4j.cypher.internal.v3_6.util.symbols.CypherType
 import org.neo4j.cypher.result.RuntimeResult
 import org.neo4j.internal.kernel.api.procs.ProcedureCallContext
 import org.neo4j.values.virtual.MapValue

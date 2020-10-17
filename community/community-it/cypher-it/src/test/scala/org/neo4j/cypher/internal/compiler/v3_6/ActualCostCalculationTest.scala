@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -35,6 +35,7 @@ import org.neo4j.cypher.internal.runtime.interpreted.commands.values.TokenType.P
 import org.neo4j.cypher.internal.runtime.interpreted.pipes._
 import org.neo4j.cypher.internal.runtime.interpreted.{QueryStateHelper, TransactionBoundPlanContext, TransactionBoundQueryContext, TransactionalContextWrapper}
 import org.neo4j.cypher.internal.v3_6.logical.plans.{DoNotGetValue, IndexOrderNone, IndexedProperty, SingleQueryExpression}
+import org.neo4j.cypher.internal.v3_6.logical.plans.IndexOrderNone
 import org.neo4j.graphdb._
 import org.neo4j.internal.kernel.api.Transaction.Type
 import org.neo4j.internal.kernel.api.security.LoginContext
@@ -48,6 +49,11 @@ import org.neo4j.cypher.internal.v3_6.expressions.{LabelToken, PropertyKeyToken,
 import org.neo4j.cypher.internal.v3_6.frontend.phases.devNullLogger
 import org.neo4j.cypher.internal.v3_6.util.test_helpers.CypherFunSuite
 import org.neo4j.cypher.internal.v3_6.util.{LabelId, PropertyKeyId}
+import org.neo4j.cypher.internal.v3_6.expressions.{LabelToken, PropertyKeyToken, SemanticDirection}
+import org.neo4j.cypher.internal.v3_6.frontend.phases.devNullLogger
+import org.neo4j.cypher.internal.v3_6.util.test_helpers.CypherFunSuite
+import org.neo4j.cypher.internal.v3_6.util.{LabelId, PropertyKeyId}
+import org.neo4j.cypher.internal.v3_6.logical.plans.{DoNotGetValue, IndexOrderNone, IndexedProperty, SingleQueryExpression}
 
 import scala.collection.mutable
 import scala.collection.mutable.ListBuffer

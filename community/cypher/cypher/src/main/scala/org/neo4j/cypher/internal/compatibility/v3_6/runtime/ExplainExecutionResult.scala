@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -29,9 +29,9 @@ import java.util.Collections
 import org.neo4j.cypher.internal.runtime._
 import org.neo4j.cypher.internal.runtime.planDescription.InternalPlanDescription
 import org.neo4j.cypher.result.QueryResult.QueryResultVisitor
-import org.neo4j.graphdb.Result.ResultVisitor
 import org.neo4j.graphdb.Notification
 import org.neo4j.graphdb.ResourceIterator
+import org.neo4j.graphdb.Result.ResultVisitor
 import org.neo4j.helpers.collection.Iterators
 
 case class ExplainExecutionResult(fieldNames: Array[String],

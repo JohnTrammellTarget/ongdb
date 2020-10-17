@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -30,6 +30,7 @@ import org.neo4j.internal.kernel.api.IndexCapability;
 import org.neo4j.internal.kernel.api.IndexLimitation;
 import org.neo4j.internal.kernel.api.IndexOrder;
 import org.neo4j.internal.kernel.api.IndexValueCapability;
+import org.neo4j.internal.kernel.api.TokenNameLookup;
 import org.neo4j.internal.kernel.api.schema.IndexProviderDescriptor;
 import org.neo4j.io.fs.FileSystemAbstraction;
 import org.neo4j.io.pagecache.PageCache;
@@ -62,15 +63,17 @@ public class StringIndexProvider extends NativeIndexProvider<StringIndexKey,Nati
     }
 
     @Override
-    protected IndexPopulator newIndexPopulator( File storeFile, StringLayout layout, StoreIndexDescriptor descriptor, ByteBufferFactory bufferFactory )
+    protected IndexPopulator newIndexPopulator( File storeFile, StringLayout layout, StoreIndexDescriptor descriptor, ByteBufferFactory bufferFactory,
+            TokenNameLookup tokenNameLookup )
     {
-        return new WorkSyncedNativeIndexPopulator<>( new StringIndexPopulator( pageCache, fs, storeFile, layout, monitor, descriptor ) );
+        return new WorkSyncedNativeIndexPopulator<>( new StringIndexPopulator( pageCache, fs, storeFile, layout, monitor, descriptor, tokenNameLookup ) );
     }
 
     @Override
-    protected IndexAccessor newIndexAccessor( File storeFile, StringLayout layout, StoreIndexDescriptor descriptor, boolean readOnly )
+    protected IndexAccessor newIndexAccessor( File storeFile, StringLayout layout, StoreIndexDescriptor descriptor, boolean readOnly,
+            TokenNameLookup tokenNameLookup )
     {
-        return new StringIndexAccessor( pageCache, fs, storeFile, layout, recoveryCleanupWorkCollector, monitor, descriptor, readOnly );
+        return new StringIndexAccessor( pageCache, fs, storeFile, layout, recoveryCleanupWorkCollector, monitor, descriptor, readOnly, tokenNameLookup );
     }
 
     @Override

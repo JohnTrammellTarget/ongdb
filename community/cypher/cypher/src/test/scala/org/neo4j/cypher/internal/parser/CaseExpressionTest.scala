@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -23,10 +23,14 @@
 package org.neo4j.cypher.internal.parser
 
 import org.neo4j.cypher.internal.planner.v3_6.spi.TokenContext
-import org.neo4j.cypher.internal.runtime.interpreted.commands.convert.{CommunityExpressionConverter, ExpressionConverters}
-import org.neo4j.cypher.internal.runtime.interpreted.commands.predicates.{Equals, True}
-import org.neo4j.cypher.internal.runtime.interpreted.commands.{predicates, expressions => legacy}
-import org.neo4j.cypher.internal.v3_6.parser.{Expressions, ParserTest}
+import org.neo4j.cypher.internal.runtime.interpreted.commands.convert.CommunityExpressionConverter
+import org.neo4j.cypher.internal.runtime.interpreted.commands.convert.ExpressionConverters
+import org.neo4j.cypher.internal.runtime.interpreted.commands.predicates.Equals
+import org.neo4j.cypher.internal.runtime.interpreted.commands.predicates.True
+import org.neo4j.cypher.internal.runtime.interpreted.commands.predicates
+import org.neo4j.cypher.internal.runtime.interpreted.commands.{expressions => legacy}
+import org.neo4j.cypher.internal.v3_6.parser.Expressions
+import org.neo4j.cypher.internal.v3_6.parser.ParserTest
 import org.neo4j.cypher.internal.v3_6.util.attribution.Id
 import org.neo4j.cypher.internal.v3_6.{expressions => ast}
 import org.parboiled.scala._

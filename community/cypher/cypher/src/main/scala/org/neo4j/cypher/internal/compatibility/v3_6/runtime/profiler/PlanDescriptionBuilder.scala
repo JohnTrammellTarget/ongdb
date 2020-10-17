@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -25,11 +25,11 @@ package org.neo4j.cypher.internal.compatibility.v3_6.runtime.profiler
 import org.neo4j.cypher.internal.compatibility.v3_6.runtime.RuntimeName
 import org.neo4j.cypher.internal.planner.v3_6.spi.PlanningAttributes.Cardinalities
 import org.neo4j.cypher.internal.planner.v3_6.spi.PlanningAttributes.ProvidedOrders
+import org.neo4j.cypher.internal.runtime.planDescription.Argument
+import org.neo4j.cypher.internal.runtime.planDescription.InternalPlanDescription
 import org.neo4j.cypher.internal.runtime.planDescription.InternalPlanDescription.Arguments
 import org.neo4j.cypher.internal.runtime.planDescription.InternalPlanDescription.Arguments.Runtime
 import org.neo4j.cypher.internal.runtime.planDescription.InternalPlanDescription.Arguments.RuntimeImpl
-import org.neo4j.cypher.internal.runtime.planDescription.Argument
-import org.neo4j.cypher.internal.runtime.planDescription.InternalPlanDescription
 import org.neo4j.cypher.internal.runtime.planDescription.LogicalPlan2PlanDescription
 import org.neo4j.cypher.internal.v3_6.frontend.PlannerName
 import org.neo4j.cypher.internal.v3_6.logical.plans.LogicalPlan

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -26,6 +26,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.neo4j.hashing.HashFunction;
+
+import static org.neo4j.values.utils.ValueMath.HASH_CONSTANT;
 
 /**
  * Implementation of StringValue that wraps a `java.lang.String` and
@@ -65,7 +67,7 @@ final class StringWrappingStringValue extends StringValue
         for ( int offset = 0, codePoint; offset < length; offset += Character.charCount( codePoint ) )
         {
             codePoint = value.codePointAt( offset );
-            h = 31 * h + codePoint;
+            h = HASH_CONSTANT * h + codePoint;
         }
         return h;
     }

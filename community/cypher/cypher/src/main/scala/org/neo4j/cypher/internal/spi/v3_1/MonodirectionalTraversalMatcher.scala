@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -23,16 +23,16 @@
 package org.neo4j.cypher.internal.spi.v3_1
 
 import org.neo4j.cypher.internal.compiler.v3_1._
+import org.neo4j.cypher.internal.compiler.v3_1.pipes.EntityProducer
+import org.neo4j.cypher.internal.compiler.v3_1.pipes.QueryState
 import org.neo4j.cypher.internal.compiler.v3_1.pipes.matching.ExpanderStep
 import org.neo4j.cypher.internal.compiler.v3_1.pipes.matching.TraversalMatcher
 import org.neo4j.cypher.internal.compiler.v3_1.pipes.matching.TraversalPathExpander
-import org.neo4j.cypher.internal.compiler.v3_1.pipes.EntityProducer
-import org.neo4j.cypher.internal.compiler.v3_1.pipes.QueryState
 import org.neo4j.cypher.internal.compiler.v3_1.planDescription.Argument
-import org.neo4j.graphdb.traversal.Uniqueness
-import org.neo4j.graphdb.traversal._
 import org.neo4j.graphdb.Node
 import org.neo4j.graphdb.Path
+import org.neo4j.graphdb.traversal.Uniqueness
+import org.neo4j.graphdb.traversal._
 import org.neo4j.kernel.impl.traversal.MonoDirectionalTraversalDescription
 
 import scala.collection.JavaConverters._

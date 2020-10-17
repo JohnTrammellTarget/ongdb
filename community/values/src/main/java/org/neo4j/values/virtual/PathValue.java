@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -29,6 +29,8 @@ import org.neo4j.values.AnyValue;
 import org.neo4j.values.AnyValueWriter;
 import org.neo4j.values.ValueMapper;
 import org.neo4j.values.VirtualValue;
+
+import static org.neo4j.values.utils.ValueMath.HASH_CONSTANT;
 
 public abstract class PathValue extends VirtualValue
 {
@@ -63,8 +65,8 @@ public abstract class PathValue extends VirtualValue
         int result = nodes[0].hashCode();
         for ( int i = 1; i < nodes.length; i++ )
         {
-            result += 31 * (result + relationships[i - 1].hashCode());
-            result += 31 * (result + nodes[i].hashCode());
+            result += HASH_CONSTANT * (result + relationships[i - 1].hashCode());
+            result += HASH_CONSTANT * (result + nodes[i].hashCode());
         }
         return result;
     }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -27,15 +27,15 @@ import org.neo4j.cypher.internal.compatibility.v3_6.runtime.executionplan._
 import org.neo4j.cypher.internal.compatibility.v3_6.runtime.profiler.InterpretedProfileInformation
 import org.neo4j.cypher.internal.compatibility.v3_6.runtime.profiler.Profiler
 import org.neo4j.cypher.internal.compiler.v3_6.phases.LogicalPlanState
+import org.neo4j.cypher.internal.runtime.ExecutionMode
+import org.neo4j.cypher.internal.runtime.ExplainMode
+import org.neo4j.cypher.internal.runtime.ProfileMode
+import org.neo4j.cypher.internal.runtime.QueryContext
 import org.neo4j.cypher.internal.runtime.interpreted.UpdateCountingQueryContext
 import org.neo4j.cypher.internal.runtime.interpreted.commands.convert.CommunityExpressionConverter
 import org.neo4j.cypher.internal.runtime.interpreted.commands.convert.ExpressionConverters
 import org.neo4j.cypher.internal.runtime.interpreted.pipes.PipeExecutionBuilderContext
 import org.neo4j.cypher.internal.runtime.planDescription.Argument
-import org.neo4j.cypher.internal.runtime.ExecutionMode
-import org.neo4j.cypher.internal.runtime.ExplainMode
-import org.neo4j.cypher.internal.runtime.ProfileMode
-import org.neo4j.cypher.internal.runtime.QueryContext
 import org.neo4j.cypher.internal.v3_6.util.InternalNotification
 import org.neo4j.cypher.internal.v3_6.util.PeriodicCommitInOpenTransactionException
 import org.neo4j.cypher.result.RuntimeResult

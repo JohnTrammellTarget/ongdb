@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -23,6 +23,7 @@
 package org.neo4j.kernel.api.impl.fulltext;
 
 import org.apache.lucene.document.Document;
+import org.apache.lucene.index.Term;
 
 import java.io.IOException;
 import java.io.UncheckedIOException;
@@ -176,7 +177,8 @@ public class FulltextIndexAccessor extends AbstractLuceneIndexAccessor<FulltextI
         {
             try
             {
-                writer.deleteDocuments( newTermForChangeOrRemove( entityId ) );
+                Term term = newTermForChangeOrRemove( entityId );
+                writer.deleteDocuments( term );
             }
             catch ( IOException e )
             {

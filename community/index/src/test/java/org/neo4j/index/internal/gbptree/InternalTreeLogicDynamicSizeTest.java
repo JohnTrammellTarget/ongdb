@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -40,7 +40,9 @@ public class InternalTreeLogicDynamicSizeTest extends InternalTreeLogicTestBase<
         {
             long baseSeed = layout.keySeed( base );
             long addSeed = layout.keySeed( add );
-            return layout.value( baseSeed + addSeed );
+            RawBytes merged = layout.value( baseSeed + addSeed );
+            base.copyFrom( merged );
+            return ValueMerger.MergeResult.MERGED;
         };
     }
 

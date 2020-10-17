@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -22,6 +22,7 @@
  */
 package org.neo4j.cypher.internal.compatibility.v3_4
 
+import org.neo4j.cypher._
 import org.neo4j.cypher.exceptionHandler.RunSafely
 import org.neo4j.cypher.exceptionHandler.mapToCypher
 import org.neo4j.cypher.internal.compatibility.ExceptionHandler
@@ -29,7 +30,6 @@ import org.neo4j.cypher.internal.util.v3_4.spi.MapToPublicExceptions
 import org.neo4j.cypher.internal.util.v3_4.{CypherException => InternalCypherExceptionV3_4}
 import org.neo4j.cypher.internal.v3_6.util.{CypherException => InternalCypherExceptionv3_6}
 import org.neo4j.cypher.{exceptionHandler => exceptionHandlerv3_6}
-import org.neo4j.cypher._
 import org.neo4j.values.utils.ValuesException
 
 object exceptionHandler extends MapToPublicExceptions[CypherException] {

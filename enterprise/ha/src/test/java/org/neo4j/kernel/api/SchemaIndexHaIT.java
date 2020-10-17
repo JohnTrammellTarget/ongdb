@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2018 "Neo4j,"
@@ -46,6 +46,7 @@ import org.neo4j.graphdb.schema.Schema.IndexState;
 import org.neo4j.index.internal.gbptree.RecoveryCleanupWorkCollector;
 import org.neo4j.internal.kernel.api.IndexCapability;
 import org.neo4j.internal.kernel.api.InternalIndexState;
+import org.neo4j.internal.kernel.api.TokenNameLookup;
 import org.neo4j.internal.kernel.api.schema.IndexProviderDescriptor;
 import org.neo4j.io.fs.DefaultFileSystemAbstraction;
 import org.neo4j.io.fs.FileSystemAbstraction;
@@ -57,8 +58,6 @@ import org.neo4j.kernel.api.index.IndexEntryUpdate;
 import org.neo4j.kernel.api.index.IndexPopulator;
 import org.neo4j.kernel.api.index.IndexProvider;
 import org.neo4j.kernel.api.index.IndexUpdater;
-import org.neo4j.kernel.impl.index.schema.ByteBufferFactory;
-import org.neo4j.storageengine.api.NodePropertyAccessor;
 import org.neo4j.kernel.configuration.Config;
 import org.neo4j.kernel.extension.ExtensionType;
 import org.neo4j.kernel.extension.KernelExtensionFactory;
@@ -69,10 +68,12 @@ import org.neo4j.kernel.impl.api.index.sampling.IndexSamplingConfig;
 import org.neo4j.kernel.impl.factory.OperationalMode;
 import org.neo4j.kernel.impl.ha.ClusterManager;
 import org.neo4j.kernel.impl.ha.ClusterManager.ManagedCluster;
+import org.neo4j.kernel.impl.index.schema.ByteBufferFactory;
 import org.neo4j.kernel.impl.index.schema.fusion.FusionIndexProvider;
 import org.neo4j.kernel.impl.spi.KernelContext;
 import org.neo4j.kernel.impl.storemigration.StoreMigrationParticipant;
 import org.neo4j.kernel.lifecycle.Lifecycle;
+import org.neo4j.storageengine.api.NodePropertyAccessor;
 import org.neo4j.storageengine.api.schema.IndexSample;
 import org.neo4j.storageengine.api.schema.StoreIndexDescriptor;
 import org.neo4j.test.DoubleLatch;
@@ -500,17 +501,18 @@ public class SchemaIndexHaIT
         }
 
         @Override
-        public IndexPopulator getPopulator( StoreIndexDescriptor descriptor,
-            IndexSamplingConfig samplingConfig, ByteBufferFactory bufferFactory )
+        public IndexPopulator getPopulator( StoreIndexDescriptor descriptor, IndexSamplingConfig samplingConfig, ByteBufferFactory bufferFactory,
+                                            TokenNameLookup tokenNameLookup )
         {
-            IndexPopulator populator = delegate.getPopulator( descriptor, samplingConfig, bufferFactory );
+            IndexPopulator populator = delegate.getPopulator( descriptor, samplingConfig, bufferFactory, tokenNameLookup );
             return new ControlledIndexPopulator( populator, latch );
         }
 
         @Override
-        public IndexAccessor getOnlineAccessor( StoreIndexDescriptor descriptor, IndexSamplingConfig samplingConfig ) throws IOException
+        public IndexAccessor getOnlineAccessor( StoreIndexDescriptor descriptor, IndexSamplingConfig samplingConfig, TokenNameLookup tokenNameLookup )
+                throws IOException
         {
-            return delegate.getOnlineAccessor( descriptor, samplingConfig );
+            return delegate.getOnlineAccessor( descriptor, samplingConfig, tokenNameLookup );
         }
 
         @Override

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -95,8 +95,10 @@ public enum Group
 
     // MISC.
     /** UDC timed events. */
-    UDC( "UsageDataCollector" )
-    ;
+    UDC( "UsageDataCollector" ),
+
+    //TESTING
+    TESTING( "TestingGroup", ExecutorServiceFactory.callingThread() );
 
     private final String name;
     private final ExecutorServiceFactory executorServiceFactory;

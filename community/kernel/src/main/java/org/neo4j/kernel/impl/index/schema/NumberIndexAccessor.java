@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -25,6 +25,7 @@ package org.neo4j.kernel.impl.index.schema;
 import java.io.File;
 
 import org.neo4j.index.internal.gbptree.RecoveryCleanupWorkCollector;
+import org.neo4j.internal.kernel.api.TokenNameLookup;
 import org.neo4j.io.fs.FileSystemAbstraction;
 import org.neo4j.io.pagecache.PageCache;
 import org.neo4j.kernel.api.index.IndexProvider;
@@ -36,9 +37,10 @@ import static org.neo4j.index.internal.gbptree.GBPTree.NO_HEADER_WRITER;
 public class NumberIndexAccessor extends NativeIndexAccessor<NumberIndexKey,NativeIndexValue>
 {
     NumberIndexAccessor( PageCache pageCache, FileSystemAbstraction fs, File storeFile, IndexLayout<NumberIndexKey,NativeIndexValue> layout,
-            RecoveryCleanupWorkCollector recoveryCleanupWorkCollector, IndexProvider.Monitor monitor, StoreIndexDescriptor descriptor, boolean readOnly )
+            RecoveryCleanupWorkCollector recoveryCleanupWorkCollector, IndexProvider.Monitor monitor, StoreIndexDescriptor descriptor, boolean readOnly,
+            TokenNameLookup tokenNameLookup )
     {
-        super( pageCache, fs, storeFile, layout, monitor, descriptor, NO_HEADER_WRITER, readOnly );
+        super( pageCache, fs, storeFile, layout, monitor, descriptor, NO_HEADER_WRITER, readOnly, tokenNameLookup );
         instantiateTree( recoveryCleanupWorkCollector, headerWriter );
     }
 

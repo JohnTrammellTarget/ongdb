@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2018 "Neo4j,"
@@ -70,7 +70,7 @@ class ExecutionEngineIT extends CypherFunSuite with GraphIcing {
     val emptySignature: util.List[FieldSignature] = List.empty[FieldSignature].asJava
     val signature: ProcedureSignature = new ProcedureSignature(
       procedureName, paramSignature, resultSignature, Mode.READ, false, null, Array.empty,
-      null, null, false, false)
+      null, null, false, false, false)
 
     def paramSignature: util.List[FieldSignature] = List.empty[FieldSignature].asJava
 

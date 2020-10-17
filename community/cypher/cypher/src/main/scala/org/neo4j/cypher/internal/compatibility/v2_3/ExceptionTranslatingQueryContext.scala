@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -24,10 +24,10 @@ package org.neo4j.cypher.internal.compatibility.v2_3
 
 import java.net.URL
 
-import org.neo4j.cypher.internal.compiler.v2_3.spi._
-import org.neo4j.cypher.internal.frontend.v2_3.SemanticDirection
 import org.neo4j.cypher.ConstraintValidationException
 import org.neo4j.cypher.CypherExecutionException
+import org.neo4j.cypher.internal.compiler.v2_3.spi._
+import org.neo4j.cypher.internal.frontend.v2_3.SemanticDirection
 import org.neo4j.graphdb.Node
 import org.neo4j.graphdb.PropertyContainer
 import org.neo4j.graphdb.Relationship

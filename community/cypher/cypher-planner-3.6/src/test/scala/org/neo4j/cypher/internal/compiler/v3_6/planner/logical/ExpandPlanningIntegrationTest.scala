@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -105,7 +105,7 @@ class ExpandPlanningIntegrationTest extends CypherFunSuite with LogicalPlanningT
     } getLogicalPlanFor "MATCH (start)-[rel:x]-(a) WHERE a.name = 'Andres' return a")._2 should equal(
         Expand(
           Selection(
-            Ands(Set(In(Property(Variable("a")_, PropertyKeyName("name")_)_, ListLiteral(Seq(StringLiteral("Andres")_))_)_))_,
+            Ands(Set(Equals(Property(Variable("a")_, PropertyKeyName("name")_)_, StringLiteral("Andres")_)_))_,
             AllNodesScan("a", Set.empty)
           ),
           "a", SemanticDirection.BOTH, Seq(RelTypeName("x")_), "start", "rel"

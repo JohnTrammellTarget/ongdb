@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -29,19 +29,13 @@ import org.neo4j.cypher._
 import org.neo4j.cypher.exceptionHandler.runSafely
 import org.neo4j.cypher.internal._
 import org.neo4j.cypher.internal.compatibility.v3_6.runtime.helpers.simpleExpressionEvaluator
-import org.neo4j.cypher.internal.compatibility.CypherPlanner
-import org.neo4j.cypher.internal.compatibility._
+import org.neo4j.cypher.internal.compatibility.{CypherPlanner, _}
 import org.neo4j.cypher.internal.compiler.v3_6
 import org.neo4j.cypher.internal.compiler.v3_6._
-import org.neo4j.cypher.internal.compiler.v3_6.phases.PlannerContext
-import org.neo4j.cypher.internal.compiler.v3_6.phases.PlannerContextCreator
+import org.neo4j.cypher.internal.compiler.v3_6.phases.{PlannerContext, PlannerContextCreator}
 import org.neo4j.cypher.internal.compiler.v3_6.planner.logical.idp._
-import org.neo4j.cypher.internal.compiler.v3_6.planner.logical.CachedMetricsFactory
-import org.neo4j.cypher.internal.compiler.v3_6.planner.logical.SimpleMetricsFactory
-import org.neo4j.cypher.internal.planner.v3_6.spi.CostBasedPlannerName
-import org.neo4j.cypher.internal.planner.v3_6.spi.DPPlannerName
-import org.neo4j.cypher.internal.planner.v3_6.spi.IDPPlannerName
-import org.neo4j.cypher.internal.planner.v3_6.spi.PlanContext
+import org.neo4j.cypher.internal.compiler.v3_6.planner.logical.{CachedMetricsFactory, SimpleMetricsFactory}
+import org.neo4j.cypher.internal.planner.v3_6.spi.{CostBasedPlannerName, DPPlannerName, IDPPlannerName, PlanContext}
 import org.neo4j.cypher.internal.runtime.interpreted._
 import org.neo4j.cypher.internal.v3_6.ast.Statement
 import org.neo4j.cypher.internal.v3_6.expressions.Parameter

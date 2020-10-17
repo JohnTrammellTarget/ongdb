@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -26,9 +26,9 @@ import org.neo4j.cypher.internal.planner.v3_4.spi.GraphStatistics
 import org.neo4j.cypher.internal.planner.v3_4.spi.IndexDescriptor
 import org.neo4j.cypher.internal.planner.v3_4.spi.StatisticsCompletingGraphStatistics
 import org.neo4j.cypher.internal.util.v3_4._
-import org.neo4j.internal.kernel.api.exceptions.schema.IndexNotFoundKernelException
 import org.neo4j.internal.kernel.api.Read
 import org.neo4j.internal.kernel.api.SchemaRead
+import org.neo4j.internal.kernel.api.exceptions.schema.IndexNotFoundKernelException
 
 object TransactionBoundGraphStatistics {
   def apply(read: Read, schemaRead: SchemaRead) = new StatisticsCompletingGraphStatistics(new BaseTransactionBoundGraphStatistics(read, schemaRead))

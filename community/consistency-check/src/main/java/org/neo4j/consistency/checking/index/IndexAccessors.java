@@ -2,7 +2,7 @@
  * Copyright (c) 2002-2020 "Neo4j,"
  * Neo4j Sweden AB [http://neo4j.com]
  *
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * This file is part of ONgDB.
@@ -33,6 +33,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.neo4j.internal.kernel.api.InternalIndexState;
+import org.neo4j.internal.kernel.api.TokenNameLookup;
 import org.neo4j.kernel.api.index.IndexAccessor;
 import org.neo4j.kernel.api.index.IndexProvider;
 import org.neo4j.kernel.impl.api.index.IndexProviderMap;
@@ -48,9 +49,8 @@ public class IndexAccessors implements Closeable
     private final List<StoreIndexDescriptor> onlineIndexRules = new ArrayList<>();
     private final List<StoreIndexDescriptor> notOnlineIndexRules = new ArrayList<>();
 
-    public IndexAccessors( IndexProviderMap providers,
-                           RecordStore<DynamicRecord> schemaStore,
-                           IndexSamplingConfig samplingConfig ) throws IOException
+    public IndexAccessors( IndexProviderMap providers, RecordStore<DynamicRecord> schemaStore, IndexSamplingConfig samplingConfig,
+            TokenNameLookup tokenNameLookup ) throws IOException
     {
         Iterator<StoreIndexDescriptor> indexes = new SchemaStorage( schemaStore ).indexesGetAll();
         for (; ; )
@@ -94,7 +94,7 @@ public class IndexAccessors implements Closeable
         for ( StoreIndexDescriptor indexRule : onlineIndexRules )
         {
             long indexId = indexRule.getId();
-            accessors.put( indexId, provider( providers, indexRule ).getOnlineAccessor( indexRule, samplingConfig ) );
+            accessors.put( indexId, provider( providers, indexRule ).getOnlineAccessor( indexRule, samplingConfig, tokenNameLookup ) );
         }
     }
 

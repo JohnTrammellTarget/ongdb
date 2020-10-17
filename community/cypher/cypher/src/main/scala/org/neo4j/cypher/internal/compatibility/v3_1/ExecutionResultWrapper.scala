@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -46,19 +46,19 @@ import org.neo4j.cypher.internal.frontend.v3_1.notification.RuntimeUnsupportedNo
 import org.neo4j.cypher.internal.frontend.v3_1.notification._
 import org.neo4j.cypher.internal.frontend.v3_1.{symbols => symbols3_1}
 import org.neo4j.cypher.internal.frontend.v3_1.{SemanticDirection => SemanticDirection3_1}
-import org.neo4j.cypher.internal.runtime.planDescription.InternalPlanDescription.Arguments
-import org.neo4j.cypher.internal.runtime.planDescription.InternalPlanDescription.Arguments._
+import org.neo4j.cypher.internal.runtime.ExplainMode
+import org.neo4j.cypher.internal.runtime.NormalMode
+import org.neo4j.cypher.internal.runtime.ProfileMode
+import org.neo4j.cypher.internal.runtime.QueryStatistics
 import org.neo4j.cypher.internal.runtime.planDescription.Argument
 import org.neo4j.cypher.internal.runtime.planDescription.Children
+import org.neo4j.cypher.internal.runtime.planDescription.InternalPlanDescription.Arguments
+import org.neo4j.cypher.internal.runtime.planDescription.InternalPlanDescription.Arguments._
 import org.neo4j.cypher.internal.runtime.planDescription.NoChildren
 import org.neo4j.cypher.internal.runtime.planDescription.PlanDescriptionImpl
 import org.neo4j.cypher.internal.runtime.planDescription.SingleChild
 import org.neo4j.cypher.internal.runtime.planDescription.TwoChildren
 import org.neo4j.cypher.internal.runtime.planDescription.{InternalPlanDescription => InternalPlanDescription3_4}
-import org.neo4j.cypher.internal.runtime.ExplainMode
-import org.neo4j.cypher.internal.runtime.NormalMode
-import org.neo4j.cypher.internal.runtime.ProfileMode
-import org.neo4j.cypher.internal.runtime.QueryStatistics
 import org.neo4j.cypher.internal.v3_6.expressions.SemanticDirection.BOTH
 import org.neo4j.cypher.internal.v3_6.expressions.SemanticDirection.INCOMING
 import org.neo4j.cypher.internal.v3_6.expressions.SemanticDirection.OUTGOING
@@ -68,13 +68,13 @@ import org.neo4j.cypher.internal.v3_6.util.{symbols => symbolsv3_6}
 import org.neo4j.cypher.result.QueryResult
 import org.neo4j.cypher.result.QueryResult.Record
 import org.neo4j.graphdb
+import org.neo4j.graphdb.InputPosition
+import org.neo4j.graphdb.Notification
+import org.neo4j.graphdb.ResourceIterator
 import org.neo4j.graphdb.Result.ResultRow
 import org.neo4j.graphdb.Result.ResultVisitor
 import org.neo4j.graphdb.impl.notification.NotificationCode
 import org.neo4j.graphdb.impl.notification.NotificationDetail
-import org.neo4j.graphdb.InputPosition
-import org.neo4j.graphdb.Notification
-import org.neo4j.graphdb.ResourceIterator
 import org.neo4j.kernel.impl.util.ValueUtils
 import org.neo4j.values.AnyValue
 

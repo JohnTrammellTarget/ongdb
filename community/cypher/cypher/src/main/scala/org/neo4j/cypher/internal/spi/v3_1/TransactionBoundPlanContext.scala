@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -29,18 +29,18 @@ import org.neo4j.cypher.internal.compiler.v3_1.InternalNotificationLogger
 import org.neo4j.cypher.internal.compiler.v3_1.pipes.EntityProducer
 import org.neo4j.cypher.internal.compiler.v3_1.pipes.matching.ExpanderStep
 import org.neo4j.cypher.internal.compiler.v3_1.spi._
-import org.neo4j.cypher.internal.frontend.v3_1.symbols.CypherType
 import org.neo4j.cypher.internal.frontend.v3_1.CypherExecutionException
 import org.neo4j.cypher.internal.frontend.v3_1.symbols
+import org.neo4j.cypher.internal.frontend.v3_1.symbols.CypherType
 import org.neo4j.cypher.internal.runtime.interpreted.LastCommittedTxIdProvider
 import org.neo4j.graphdb.Node
-import org.neo4j.internal.kernel.api.exceptions.KernelException
-import org.neo4j.internal.kernel.api.procs.Neo4jTypes.AnyType
-import org.neo4j.internal.kernel.api.procs.DefaultParameterValue
-import org.neo4j.internal.kernel.api.procs.Neo4jTypes
 import org.neo4j.internal.kernel.api.IndexReference
 import org.neo4j.internal.kernel.api.InternalIndexState
+import org.neo4j.internal.kernel.api.exceptions.KernelException
 import org.neo4j.internal.kernel.api.procs
+import org.neo4j.internal.kernel.api.procs.DefaultParameterValue
+import org.neo4j.internal.kernel.api.procs.Neo4jTypes
+import org.neo4j.internal.kernel.api.procs.Neo4jTypes.AnyType
 import org.neo4j.kernel.api.schema.SchemaDescriptorFactory
 import org.neo4j.kernel.api.schema.constraints.ConstraintDescriptor
 import org.neo4j.procedure.Mode

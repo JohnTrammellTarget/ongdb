@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -56,6 +56,16 @@ public class AnyValueTestUtil
         assertEquals( a + " should be equivalent to " + b, b, a );
         assertTrue( a + " should be equal to " + b, a.ternaryEquals( b ) );
         assertTrue( a + " should be equal to " + b, b.ternaryEquals( a ) );
+        assertEquals( a + ".hashCode() should be equivalent to " + b + ".hashCode()", a.hashCode(), b.hashCode() );
+    }
+
+    public static void assertEqualWithNoValues( AnyValue a, AnyValue b )
+    {
+        assertEquals( a + " should be equivalent to " + b, a, b );
+        assertEquals( a + " should be equivalent to " + b, b, a );
+        assertEquals( a + " should not be equal to " + b, null, a.ternaryEquals( b ) );
+        assertEquals( a + " should not be equal to " + b, null, b.ternaryEquals( a ) );
+        assertEquals( a + ".hashCode() should be equivalent to " + b + ".hashCode()", a.hashCode(), b.hashCode() );
     }
 
     public static void assertNotEqual( AnyValue a, AnyValue b )

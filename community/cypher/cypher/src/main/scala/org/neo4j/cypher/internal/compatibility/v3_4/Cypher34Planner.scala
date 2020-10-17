@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -35,18 +35,18 @@ import org.neo4j.cypher.internal.compiler.v3_4
 import org.neo4j.cypher.internal.compiler.v3_4.CypherCompilerFactory
 import org.neo4j.cypher.internal.compiler.v3_4.planner.logical.{idp => idpV3_4}
 import org.neo4j.cypher.internal.compiler.v3_4.planner.{logical => logicalV3_4}
+import org.neo4j.cypher.internal.compiler.v3_6.CypherPlannerConfiguration
+import org.neo4j.cypher.internal.compiler.v3_6.defaultUpdateStrategy
 import org.neo4j.cypher.internal.compiler.v3_6.phases.PlannerContext
 import org.neo4j.cypher.internal.compiler.v3_6.phases.PlannerContextCreator
 import org.neo4j.cypher.internal.compiler.v3_6.planner.logical.CachedMetricsFactory
 import org.neo4j.cypher.internal.compiler.v3_6.planner.logical.SimpleMetricsFactory
-import org.neo4j.cypher.internal.compiler.v3_6.CypherPlannerConfiguration
-import org.neo4j.cypher.internal.compiler.v3_6.defaultUpdateStrategy
 import org.neo4j.cypher.internal.frontend.v3_4.ast.{Statement => StatementV3_4}
 import org.neo4j.cypher.internal.frontend.v3_4.helpers.rewriting.RewriterStepSequencer
 import org.neo4j.cypher.internal.frontend.v3_4.phases
 import org.neo4j.cypher.internal.frontend.v3_4.phases.BaseState
-import org.neo4j.cypher.internal.frontend.v3_4.phases.{RecordingNotificationLogger => RecordingNotificationLoggerV3_4}
 import org.neo4j.cypher.internal.frontend.v3_4.phases.{Monitors => MonitorsV3_4}
+import org.neo4j.cypher.internal.frontend.v3_4.phases.{RecordingNotificationLogger => RecordingNotificationLoggerV3_4}
 import org.neo4j.cypher.internal.planner.v3_4.spi.{DPPlannerName => DPPlannerNameV3_4}
 import org.neo4j.cypher.internal.planner.v3_4.spi.{IDPPlannerName => IDPPlannerNameV3_4}
 import org.neo4j.cypher.internal.planner.v3_4.{spi => spiV3_4}

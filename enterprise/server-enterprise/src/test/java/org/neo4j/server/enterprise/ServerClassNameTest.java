@@ -2,7 +2,7 @@
  * See: https://raw.githubusercontent.com/neo4j/neo4j/3.4/enterprise/server-enterprise/src/test/java/org/neo4j/server/enterprise/ServerClassNameTest.java
  */
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2018 "Neo4j,"

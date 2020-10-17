@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -27,12 +27,11 @@ import org.neo4j.cypher.internal.compiler.v3_1.planner.logical.Selectivity
 import org.neo4j.cypher.internal.compiler.v3_1.spi.GraphStatistics
 import org.neo4j.cypher.internal.compiler.v3_1.spi.StatisticsCompletingGraphStatistics
 import org.neo4j.cypher.internal.frontend.v3_1.LabelId
-import org.neo4j.cypher.internal.frontend.v3_1.NameId
 import org.neo4j.cypher.internal.frontend.v3_1.PropertyKeyId
 import org.neo4j.cypher.internal.frontend.v3_1.RelTypeId
-import org.neo4j.internal.kernel.api.exceptions.schema.IndexNotFoundKernelException
 import org.neo4j.internal.kernel.api.Read
 import org.neo4j.internal.kernel.api.SchemaRead
+import org.neo4j.internal.kernel.api.exceptions.schema.IndexNotFoundKernelException
 import org.neo4j.kernel.impl.query.TransactionalContext
 
 object TransactionBoundGraphStatistics {

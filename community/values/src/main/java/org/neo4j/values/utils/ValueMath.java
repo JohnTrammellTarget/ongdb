@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -36,6 +36,8 @@ import static org.neo4j.values.storable.Values.longValue;
  */
 public final class ValueMath
 {
+    public static final int HASH_CONSTANT = 31;
+
     private ValueMath()
     {
         throw new UnsupportedOperationException( "Do not instantiate" );

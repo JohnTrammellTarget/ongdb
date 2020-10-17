@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -24,18 +24,18 @@ package org.neo4j.cypher.internal.compatibility
 
 import java.time.Clock
 
-import org.neo4j.cypher.internal.compatibility.v3_6.runtime.executionplan.DelegatingExecutionPlan
-import org.neo4j.cypher.internal.compatibility.v3_6.runtime.executionplan.ExecutionPlan
-import org.neo4j.cypher.internal.compiler.v3_6.phases.LogicalPlanState
-import org.neo4j.cypher.internal.compiler.v3_6.planner.CantCompileQueryException
-import org.neo4j.cypher.internal.compiler.v3_6.CypherPlannerConfiguration
-import org.neo4j.cypher.internal.compiler.v3_6.RuntimeUnsupportedNotification
-import org.neo4j.cypher.internal.planner.v3_6.spi.TokenContext
-import org.neo4j.cypher.internal.v3_6.frontend.phases.RecordingNotificationLogger
-import org.neo4j.cypher.internal.v3_6.util.InternalNotification
 import org.neo4j.cypher.CypherRuntimeOption
 import org.neo4j.cypher.InvalidArgumentException
 import org.neo4j.cypher.exceptionHandler
+import org.neo4j.cypher.internal.compatibility.v3_6.runtime.executionplan.DelegatingExecutionPlan
+import org.neo4j.cypher.internal.compatibility.v3_6.runtime.executionplan.ExecutionPlan
+import org.neo4j.cypher.internal.compiler.v3_6.CypherPlannerConfiguration
+import org.neo4j.cypher.internal.compiler.v3_6.RuntimeUnsupportedNotification
+import org.neo4j.cypher.internal.compiler.v3_6.phases.LogicalPlanState
+import org.neo4j.cypher.internal.compiler.v3_6.planner.CantCompileQueryException
+import org.neo4j.cypher.internal.planner.v3_6.spi.TokenContext
+import org.neo4j.cypher.internal.v3_6.frontend.phases.RecordingNotificationLogger
+import org.neo4j.cypher.internal.v3_6.util.InternalNotification
 import org.neo4j.logging.Log
 
 import scala.concurrent.duration.Duration

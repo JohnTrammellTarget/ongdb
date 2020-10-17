@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -672,7 +672,7 @@ sealed trait ProjectionClause extends HorizonClause {
       // can see both variables from before the WITH and variables introduced by the WITH
       // (SKIP and LIMIT clauses are not allowed to access variables anyway, so they do not need to be included in this condition even when they are standalone)
       val specialScopeForSubClausesNeeded = orderBy.isDefined || where.isDefined
-      val canSeePreviousScope = !(returnItems.containsAggregate | distinct)
+      val canSeePreviousScope = (!(returnItems.containsAggregate || distinct)) || returnItems.includeExisting
 
       if (specialScopeForSubClausesNeeded && canSeePreviousScope) {
         /*

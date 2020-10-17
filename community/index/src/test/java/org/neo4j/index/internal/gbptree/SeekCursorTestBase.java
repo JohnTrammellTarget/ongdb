@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020 "Graph Foundation"
+ * Copyright (c) 2018-2020 "Graph Foundation,"
  * Graph Foundation, Inc. [https://graphfoundation.org]
  *
  * Copyright (c) 2002-2020 "Neo4j,"
@@ -2244,7 +2244,7 @@ abstract class SeekCursorTestBase<KEY, VALUE>
 
     private void insert( long key, long value, PageCursor cursor ) throws IOException
     {
-        treeLogic.insert( cursor, structurePropagation, key( key ), value( value ), overwrite(), stableGeneration,
+        treeLogic.insert( cursor, structurePropagation, key( key ), value( value ), overwrite(), true, stableGeneration,
                 unstableGeneration );
         handleAfterChange();
     }
